@@ -19,11 +19,12 @@ class AdminSeeder extends Seeder
         DB::table('admins')->delete();
 
         Admin::create([
-            'name' => 'Admin',
+            'name' => 'SuperAdmin',
             'email' => 'admin@gmail.com',
-            // 'password' => hash_user_password('password'),
+            'password' => hashUserPassword('password'),
+            'image' => 'uploads/admin/default_admin_image.png',
             'type' => AdminType::SUPER_ADMIN->value,
-            'api_token' => Hash::make(rand(99, 99999999)),
+            'api_token' => hashApiToken(),
         ]);
     }
 }
