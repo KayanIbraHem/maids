@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Middleware\AcceptLangMiddleware;
+use App\Http\Middleware\AcceptLang;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -19,7 +19,15 @@ return Application::configure(basePath: dirname(__DIR__))
         }
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->appendToGroup('api', AcceptLangMiddleware::class);
+        $middleware->appendToGroup('api', AcceptLang::class);
+        $middleware->alias([
+            'superAdmin' => \App\Http\Middleware\SuperAdmin::class,
+            'localize'                => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
+            'localizationRedirect'    => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
+            'localeSessionRedirect'   => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
+            'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
+            'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
