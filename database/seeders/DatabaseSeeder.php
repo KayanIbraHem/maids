@@ -3,10 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Database\Seeders\NationalitySeeder;
 use Database\Seeders\ServiceTypeSeeder;
+use Database\Seeders\NationalityTypeSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminSeeder::class,
             ServiceTypeSeeder::class,
-            NationalitySeeder::class
+            NationalitySeeder::class,
+            NationalityTypeSeeder::class
         ]);
     }
 }

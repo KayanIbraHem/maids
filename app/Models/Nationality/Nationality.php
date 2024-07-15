@@ -2,9 +2,11 @@
 
 namespace App\Models\Nationality;
 
+use App\Models\ServiceType\ServiceType;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Nationality extends Model
 {
@@ -13,4 +15,9 @@ class Nationality extends Model
     protected $guarded = [];
     public $translatedAttributes = ['title'];
     protected $translationForeignKey = 'nationality_id';
+
+    public function serviceTypes(): BelongsToMany
+    {
+        return $this->belongsToMany(ServiceType::class, 'nationality_types', 'nationality_id', 'service_type_id');
+    }
 }

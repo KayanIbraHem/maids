@@ -36,7 +36,7 @@ class ServiceTypeSeeder extends Seeder
                     'title' => $data['title_' . $localeCode][$i],
                 ];
             }
+            ServiceType::create($serviceType);
         }
-        ServiceType::create($serviceType);
     }
 }

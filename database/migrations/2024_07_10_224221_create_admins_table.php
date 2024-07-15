@@ -19,6 +19,7 @@ return new class extends Migration
             $table->tinyInteger('type')->default(1)->comment('1=>superadmin,2=>admin,3=>moderator');
             $table->string('image')->nullable();
             $table->text('api_token')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

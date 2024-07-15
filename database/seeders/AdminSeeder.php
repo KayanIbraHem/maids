@@ -24,7 +24,7 @@ class AdminSeeder extends Seeder
             'password' => hashUserPassword('password'),
             'image' => 'uploads/admin/default_admin_image.png',
             'type' => AdminType::SUPER_ADMIN->value,
-            'api_token' => hashApiToken(),
+            'api_token' => '$2y$12$GRMRr9/TCYLi3qKRdWdb.ucZkuoxSq5BNQeC4tan4ADOoNTvXNmGK',
         ]);
     }
 }

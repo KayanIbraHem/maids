@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Services\ServiceType;
+namespace App\Http\Services\Nationality;
 
 use App\Models\Nationality\Nationality;
-use App\Models\ServiceType\ServiceType;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class NationalityService

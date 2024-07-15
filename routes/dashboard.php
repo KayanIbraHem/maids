@@ -7,12 +7,13 @@ use App\Http\Controllers\Dashboard\Admin\AdminController;
 use App\Http\Controllers\Dashboard\Admin\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Nationality\NationalityController;
 use App\Http\Controllers\Dashboard\ServiceType\ServiceTypeController;
+use App\Http\Controllers\Dashboard\NationalityType\NationalityTypeController;
 
 Route::group([
     'prefix' => 'dashboard',
 ], function () {
-
     Route::post('login', [LoginController::class, 'login']);
+
     Route::group(['middleware' => ['auth:admin']], function () {
         Route::group(['middleware' => ['superAdmin']], function () {
             //ADMIN
@@ -39,6 +40,14 @@ Route::group([
             Route::post('update_nationality/{nationality}', 'update');
             Route::get('show_nationality/{nationality}', 'show');
             Route::delete('delete_nationality/{nationality}', 'delete');
+        });
+        //NATIONALITY TYPE
+        Route::controller(NationalityTypeController::class)->group(function () {
+            Route::post('store_nationality_type', 'store');
+            Route::get('nationality_types', 'index');
+            Route::post('update_nationality_type/{nationality_type}', 'update');
+            Route::get('show_nationality_type/{nationality_type}', 'show');
+            Route::delete('delete_nationality_type/{nationality_type}', 'delete');
         });
     });
 });
