@@ -14,23 +14,23 @@ class ServiceTypeController extends Controller
 {
     use ApiResponseTrait;
 
-    public function __construct(private ServiceTypeService $adminService)
+    public function __construct(private ServiceTypeService $serviceTypeService)
     {
     }
     public function index()
     {
         try {
-            $admins = $this->adminService->getServiceTypes();
-            $response = ServiceTypeResource::collection($admins)->response()->getData(true);
+            $serviceTypes = $this->serviceTypeService->index();
+            $response = ServiceTypeResource::collection($serviceTypes)->response()->getData(true);
             return $this->dataResponse('fetch all service types', $response, 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);
         }
     }
-    public function show(int $admin)
+    public function show(int $id)
     {
         try {
-            $row = $this->adminService->showServiceType($admin);
+            $row = $this->serviceTypeService->show($id);
             $response = new ShowServiceTypeResource($row);
             return $this->dataResponse('show service type', $response, 200);
         } catch (\Exception $e) {
@@ -40,17 +40,17 @@ class ServiceTypeController extends Controller
     public function store(ServiceTypeRequest $request)
     {
         try {
-            $admin = $this->adminService->storeServiceType(dataRequest: $request);
-            return $this->dataResponse(__('message.success_create'),  new ServiceTypeResource($admin), 200);
+            $serviceType = $this->serviceTypeService->store(data: $request->validated());
+            return $this->dataResponse(__('message.success_create'),  new ServiceTypeResource($serviceType), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);
         }
     }
-    public function update(ServiceTypeRequest $request, int $admin)
+    public function update(ServiceTypeRequest $request, int $id)
     {
         try {
-            $admin = $this->adminService->updateServiceType(dataRequest: $request, id: $admin);
-            return $this->dataResponse(__('message.success_update'),  new ServiceTypeResource($admin), 200);
+            $serviceType = $this->serviceTypeService->update(data: $request->validated(), id: $id);
+            return $this->dataResponse(__('message.success_update'),  new ServiceTypeResource($serviceType), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);
         }
@@ -58,7 +58,7 @@ class ServiceTypeController extends Controller
     public function delete($id)
     {
         try {
-            $this->adminService->deleteServiceType($id);
+            $this->serviceTypeService->delete($id);
             $msg = __('message.success_delete');
             return $this->successResponse($msg, 200);
         } catch (\Exception $e) {

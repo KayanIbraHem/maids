@@ -23,7 +23,7 @@ class ShowServiceTypeResource extends JsonResource
         }
         return [
             'id' => $this->id ?? 0,
-            'title' => $titles ?? []
+            'titles' => $titles ?? []
         ];
     }
 }
