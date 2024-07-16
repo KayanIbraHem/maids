@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Services;
+namespace App\Services;
 
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -20,7 +20,7 @@ class BaseCrudService
         $data = $this->prepareData($data);
         return $this->model::create($data);
     }
-    public function update(array $data, int $id)
+    public function update(array|object $data, int $id)
     {
         $row =  $this->findRow($id);
         $data = $this->prepareData($data);

@@ -1,9 +1,14 @@
 <?php
 
+use App\Models\Maid\Maid;
+use App\Models\Term\Term;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\ServiceType\ServiceType;
+use App\Http\Controllers\Dashboard\Maid\MaidController;
+use App\Http\Controllers\Dashboard\Term\TermController;
 use App\Http\Controllers\Dashboard\Admin\AdminController;
+use App\Http\Controllers\Dashboard\Policy\PolicyController;
 use App\Http\Controllers\Dashboard\Admin\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Nationality\NationalityController;
 use App\Http\Controllers\Dashboard\ServiceType\ServiceTypeController;
@@ -48,6 +53,30 @@ Route::group([
             Route::post('update_nationality_type/{nationality_type}', 'update');
             Route::get('show_nationality_type/{nationality_type}', 'show');
             Route::delete('delete_nationality_type/{nationality_type}', 'delete');
+        });
+        //TERM
+        Route::controller(TermController::class)->group(function () {
+            Route::post('store_term', 'store');
+            Route::get('terms', 'index');
+            Route::post('update_term/{term}', 'update');
+            Route::get('show_term/{term}', 'show');
+            Route::delete('delete_term/{term}', 'delete');
+        });
+        //POLICY
+        Route::controller(PolicyController::class)->group(function () {
+            Route::post('store_policy', 'store');
+            Route::get('policies', 'index');
+            Route::post('update_policy/{policy}', 'update');
+            Route::get('show_policy/{policy}', 'show');
+            Route::delete('delete_policy/{policy}', 'delete');
+        });
+        //MAID
+        Route::controller(MaidController::class)->group(function () {
+            Route::post('store_maid', 'store');
+            Route::get('maids', 'index');
+            Route::post('update_maid/{maid}', 'update');
+            Route::get('show_maid/{maid}', 'show');
+            Route::delete('delete_maid/{maid}', 'delete');
         });
     });
 });

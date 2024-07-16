@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Services\Admin;
+namespace App\Services\Admin;
 
 use App\Models\Admin\Admin;
 
@@ -14,25 +14,26 @@ class AdminService
     {
         return $this->findAdminById($admin);
     }
-    public function storeAdmin(object $data): Admin
+    public function storeAdmin(array $data): Admin
     {
+
         return Admin::create([
-            'name' => $data->name,
-            'email' => $data->email,
-            'password' => hashUserPassword($data->password),
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => hashUserPassword($data['password']),
             'image' => uploadImage($data, 'image', 'admins'),
-            'type' => $data->type,
+            'type' => $data['type'],
         ]);
     }
-    public function updateAdmin(object $data, int $id): Admin
+    public function updateAdmin(array $data, int $id): Admin
     {
         $admin = $this->findAdminById($id);
         $admin->update([
-            'name' => $data->name,
-            'email' => $data->email,
-            'password' => hashUserPassword($data->password),
-            'image' => updateImage($data, $admin, 'image', 'admins'),
-            'type' => $data->type,
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => hashUserPassword($data['password']),
+            'image' => updateImage($data, $admin, 'admins'),
+            'type' => $data['type'],
         ]);
         return $admin;
     }

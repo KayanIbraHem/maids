@@ -14,6 +14,7 @@ class Admin extends Model
 
     protected $guarded = [];
     protected $table = 'admins';
+    protected $append = ['imageLink'];
     public function isNotSuperAdmin()
     {
         return $this->type != AdminType::SUPER_ADMIN->value;

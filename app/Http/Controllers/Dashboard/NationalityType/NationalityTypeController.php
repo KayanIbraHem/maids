@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard\NationalityType;
 
 use App\Trait\ApiResponseTrait;
 use App\Http\Controllers\Controller;
-use App\Http\Services\NationalityType\NationalityTypeService;
+use App\Services\NationalityType\NationalityTypeService;
 use App\Http\Requests\Dashboard\NationalityType\NationalityTypeRequest;
 use App\Http\Resources\Dashboard\NationalityType\NationalityTypeResource;
 use App\Http\Resources\Dashboard\NationalityType\ShowNationalityTypeResource;
@@ -25,10 +25,10 @@ class NationalityTypeController extends Controller
             return $this->returnException($e->getMessage(), 500);
         }
     }
-    public function show(int $admin)
+    public function show(int $id)
     {
         try {
-            $nationalityType = $this->nationalityTypeService->show($admin);
+            $nationalityType = $this->nationalityTypeService->show($id);
             $response = new ShowNationalityTypeResource($nationalityType);
             return $this->dataResponse('show nationality type', $response, 200);
         } catch (\Exception $e) {
