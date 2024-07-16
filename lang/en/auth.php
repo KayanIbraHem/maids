@@ -7,6 +7,17 @@ return [
     //NAME
     'name_required' => "Name is required",
     'name_min' => "The Name field must be at least 4 characters",
+    'first_name_required' => "First Name is required",
+    'first_name_min' => "The First Name field must be at least 4 characters",
+    'first_name_max' => "The First Name field must be at most 255 characters",
+    'last_name_required' => "Last Name is required",
+    'last_name_min' => "The Last Name field must be at least 4 characters",
+    'last_name_max' => "The Last Name field must be at most 255 characters",
+    'age_required' => "Age is required",
+    'age_numeric' => "The Age must be a number",
+    'age_min' => "The Age field must be at least 1",
+    'age_max' => "The Age field must be at most 100",
+    'phone_unique'=>"Phone has already been taken",
     //GENERAL.EMAIL
     'email_not_found' => "Email not found",
     'email_required' => "Email is required",
@@ -22,4 +33,7 @@ return [
     //IMAGE
     'image_invalid' => 'The image is not valid',
     'image_mimes' => 'The image must be a file of type: png, jpg, jpeg',
+    //FILE
+    'cv_invalid' => 'The cv is not valid',
+    'cv_mimes' => 'The cv must be a file of type: pdf',
 ];

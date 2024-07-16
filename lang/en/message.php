@@ -13,6 +13,13 @@ return [
     'title_en_min' => "title in english must be at least 4 characters",
     'title_ar_max' => "title in arabic must not be greater than 255 characters",
     'title_en_max' => "title in english must not be greater than 255 characters",
+    //DESCRIPTIONS
+    'description_ar_required' => "description in arabic is required",
+    'description_en_required' => "description in english is required",
+    'description_ar_min' => "description in arabic must be at least 4 characters",
+    'description_en_min' => "description in english must be at least 4 characters",
+    'description_ar_max' => "description in arabic must not be greater than 255 characters",
+    'description_en_max' => "description in english must not be greater than 255 characters",
     //NATIONALITY TYPE
     'nationality_id_required' => "nationality id is required",
     'nationality_id_exists' => "nationality id is not exists",

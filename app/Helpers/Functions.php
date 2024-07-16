@@ -5,36 +5,62 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
-
-function uploadImage(Request $request, string $name, string $folder)
+function updateImage($request, Model $model, string $folder): ?string
 {
-    if (!$request->hasFile($name)) {
-        return;
-    }
-    $file = $request->file($name);
-    $path = 'uploads/' . $file->store($folder, [
-        'disk' => 'uploads'
-    ]);
-    return $path;
-}
-function updateImage(Request $request, Model $model, string $name, string $folder): ?string
-{
-    if ($request->image !== null) {
-        if ($model && $model->image) {
-            deleteImage($model->image);
+    if (array_key_exists('image', $request)) {
+        if ($request['image'] !== null) {
+            if ($model && $model['image']) {
+                deleteImage($model['image']);
+            }
+            return uploadImage($request, 'image', $folder);
         }
-        return uploadImage($request, $name, $folder);
     }
     return optional($model)->image;
 }
-
+function uploadImage($request, string $name, string $folder)
+{
+    if (array_key_exists('image', $request)) {
+        if (!$request[$name]) {
+            return;
+        }
+        $file = $request[$name];
+        $path = 'uploads/' . $file->store($folder, [
+            'disk' => 'uploads'
+        ]);
+    }
+    return $path ?? null;
+}
 function deleteImage($path)
 {
     if ($path != "uploads/default.jpg") {
         File::delete(public_path($path));
     }
 }
-
+function updatePdf($request, Model $model, string $folder)
+{
+    if (array_key_exists('cv', $request)) {
+        if ($request['cv'] !== null) {
+            if ($model && $model['cv']) {
+                deletePdf($model['cv']);
+            }
+            return uploadPdf($request, $folder);
+        }
+    }
+    return optional($model)->cv;
+}
+function uploadPdf($request, string $folder)
+{
+    if (array_key_exists('cv', $request)) {
+        $pdf = $request['cv'];
+        $pdfName = time() . rand(1, 9999) . '.' . $pdf->getClientOriginalExtension();
+        $path = $pdf->storeAs($folder, $pdfName, 'files');
+        return 'files/' . $path;
+    }
+}
+function deletePdf($path)
+{
+    File::delete(public_path($path));
+}
 function hashUserPassword($password)
 {
     return Hash::make($password);

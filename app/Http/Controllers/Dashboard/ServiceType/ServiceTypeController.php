@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dashboard\ServiceType;
 use Illuminate\Http\Request;
 use App\Trait\ApiResponseTrait;
 use App\Http\Controllers\Controller;
-use App\Http\Services\ServiceType\ServiceTypeService;
+use App\Services\ServiceType\ServiceTypeService;
 use App\Http\Requests\Dashboard\ServiceType\ServiceTypeRequest;
 use App\Http\Resources\Dashboard\ServiceType\ServiceTypeResource;
 use App\Http\Resources\Dashboard\ServiceType\ShowServiceTypeResource;

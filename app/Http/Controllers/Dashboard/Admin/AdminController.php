@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dashboard\Admin;
 use Illuminate\Http\Request;
 use App\Trait\ApiResponseTrait;
 use App\Http\Controllers\Controller;
-use App\Http\Services\Admin\AdminService;
+use App\Services\Admin\AdminService;
 use App\Http\Resources\Dashboard\Admin\AdminResource;
 use App\Http\Requests\Dashboard\Admin\StoreAdminRequest;
 use App\Http\Requests\Dashboard\Admin\UpdateAdminRequest;
@@ -39,7 +39,7 @@ class AdminController extends Controller
     public function store(StoreAdminRequest $request)
     {
         try {
-            $admin = $this->adminService->storeAdmin(data: $request);
+            $admin = $this->adminService->storeAdmin(data: $request->validated());
             return $this->dataResponse(__('message.success_create'),  new AdminResource($admin), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);
@@ -48,7 +48,7 @@ class AdminController extends Controller
     public function update(UpdateAdminRequest $request, int $admin)
     {
         try {
-            $admin = $this->adminService->updateAdmin(data: $request, id: $admin);
+            $admin = $this->adminService->updateAdmin(data: $request->validated(), id: $admin);
             return $this->dataResponse(__('message.success_update'),  new AdminResource($admin), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);

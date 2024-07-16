@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Services\ServiceType;
+namespace App\Services\ServiceType;
 
-use App\Http\Services\BaseCrudService;
-use App\Models\ServiceType\ServiceType;
+use App\Services\BaseCrudService;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class ServiceTypeService extends BaseCrudService
