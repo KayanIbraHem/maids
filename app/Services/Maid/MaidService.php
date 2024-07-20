@@ -3,9 +3,9 @@
 namespace App\Services\Maid;
 
 use App\Models\Maid\Maid;
-use App\Services\BaseCrudService;
+use App\Bases\Crud\CrudBase;
 
-class MaidService extends BaseCrudService
+class MaidService extends CrudBase
 {
     protected string $model = 'App\\Models\\Maid\\Maid';
 
@@ -24,7 +24,7 @@ class MaidService extends BaseCrudService
     }
     public function update(array|object $data, int $id)
     {
-        $row =  $this->findRow($id);
+        $row =  $this->getRowById($id);
         $row->update([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
@@ -39,7 +39,7 @@ class MaidService extends BaseCrudService
     }
     public function delete(int $id)
     {
-        $row =  $this->findRow($id);
+        $row =  $this->getRowById($id);
         if ($row->image) {
             deleteImage($row->image);
         }

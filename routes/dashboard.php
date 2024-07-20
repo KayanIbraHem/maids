@@ -12,6 +12,7 @@ use App\Http\Controllers\Dashboard\Policy\PolicyController;
 use App\Http\Controllers\Dashboard\Admin\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Nationality\NationalityController;
 use App\Http\Controllers\Dashboard\ServiceType\ServiceTypeController;
+use App\Http\Controllers\Dashboard\Admin\Auth\ChangePasswordController;
 use App\Http\Controllers\Dashboard\NationalityType\NationalityTypeController;
 
 Route::group([
@@ -29,6 +30,8 @@ Route::group([
                 Route::get('show_admin/{admin}', 'show');
                 Route::delete('delete_admin/{admin}', 'delete');
             });
+            //CHANGE PASSWORD
+            Route::post('change_password', [ChangePasswordController::class, 'changePassword']);
         });
         //SERVICETYPE
         Route::controller(ServiceTypeController::class)->group(function () {

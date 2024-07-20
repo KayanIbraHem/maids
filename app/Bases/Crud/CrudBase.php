@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace App\Bases\Crud;
 
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-class BaseCrudService
+class CrudBase
 {
     protected string $model;
     public function index()
@@ -13,7 +13,7 @@ class BaseCrudService
     }
     public function show(int $id)
     {
-        return  $this->findRow($id);
+        return  $this->getRowById($id);
     }
     public function store(array $data)
     {
@@ -22,21 +22,21 @@ class BaseCrudService
     }
     public function update(array|object $data, int $id)
     {
-        $row =  $this->findRow($id);
+        $row =  $this->getRowById($id);
         $data = $this->prepareData($data);
         $row->update($data);
         return $row;
     }
     public function delete(int $id)
     {
-        $row =  $this->findRow($id);
+        $row =  $this->getRowById($id);
         return $row->delete();
     }
-    protected function findRow(int $id)
+    protected function getRowById(int $id)
     {
         $row = $this->model::whereId($id)->first();
         if (!$row) {
-            throw new \Exception('not_found.');
+            throw new \Exception(__('message.not_found'));
         }
         return $row;
     }

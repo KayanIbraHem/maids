@@ -52,7 +52,7 @@ class AdminService
     {
         $admin = Admin::NotSuperAdmin()->whereId($row)->first();
         if (!$admin) {
-            throw new \Exception('not_found.');
+            throw new \Exception(__('message.not_found'));
         }
         return $admin;
     }

@@ -6,6 +6,7 @@ return [
     'success_create' => "create successfuly",
     'success_update' => "update successfuly",
     'success_delete' => "delete successfuly",
+    'not_found' => "not found",
     //TITLEs
     'title_ar_required' => "title in arabic is required",
     'title_en_required' => "title in english is required",

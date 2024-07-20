@@ -61,6 +61,15 @@ function deletePdf($path)
 {
     File::delete(public_path($path));
 }
+function isPDF($file): bool
+{
+    return $file->getMimeType() === 'application/pdf';
+}
+
+function isImage($file): bool
+{
+    return in_array($file->getMimeType(), ['image/jpeg', 'image/png', 'image/gif']);
+}
 function hashUserPassword($password)
 {
     return Hash::make($password);

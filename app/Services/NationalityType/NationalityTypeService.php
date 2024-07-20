@@ -2,10 +2,10 @@
 
 namespace App\Services\NationalityType;
 
-use App\Services\BaseCrudService;
+use App\Bases\Crud\CrudBase;
 use App\Models\NationalityType\NationalityType;
 
-class NationalityTypeService extends BaseCrudService
+class NationalityTypeService extends CrudBase
 {
     protected string $model = 'App\\Models\\NationalityType\\NationalityType';
     public function store(array $dataRequest)
@@ -14,7 +14,7 @@ class NationalityTypeService extends BaseCrudService
     }
     public function update(array|object $dataRequest, int $id)
     {
-        $row =  $this->findRow($id);
+        $row =  $this->getRowById($id);
         $row->update($dataRequest);
         return $row;
     }
