@@ -22,7 +22,7 @@ class AdminSeeder extends Seeder
             'name' => 'SuperAdmin',
             'email' => 'admin@gmail.com',
             'password' => hashUserPassword('password'),
-            'image' => 'uploads/admin/default_admin_image.png',
+            'image' => 'default/Admin/adminDefault.png',
             'type' => AdminType::SUPER_ADMIN->value,
             'api_token' => '$2y$12$GRMRr9/TCYLi3qKRdWdb.ucZkuoxSq5BNQeC4tan4ADOoNTvXNmGK',
         ]);

@@ -2,10 +2,10 @@
 
 namespace App\Services\Term;
 
-use App\Services\BaseCrudService;
+use App\Bases\Crud\CrudBase;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-class TermService extends BaseCrudService
+class TermService extends CrudBase
 {
     protected string $model = 'App\\Models\\Term\\Term';
     protected function prepareData(array $dataRequest): array

@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Maid\Maid;
 use Illuminate\Database\Seeder;
+use Database\Seeders\UserSeeder;
 use Database\Seeders\NationalitySeeder;
 use Database\Seeders\ServiceTypeSeeder;
 use Database\Seeders\NationalityTypeSeeder;
@@ -25,7 +27,9 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             ServiceTypeSeeder::class,
             NationalitySeeder::class,
-            NationalityTypeSeeder::class
+            NationalityTypeSeeder::class,
+            MaidSeeder::class,
+            UserSeeder::class
         ]);
     }
 }

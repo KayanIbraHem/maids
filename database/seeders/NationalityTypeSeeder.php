@@ -17,8 +17,8 @@ class NationalityTypeSeeder extends Seeder
     public function run(): void
     {
         DB::table('nationality_types')->delete();
-        $nationalities = Nationality::get()->pluck('id', 'id');
-        $serviceTypes = ServiceType::get()->pluck('id', 'id');
+        $nationalities = Nationality::all()->pluck('id', 'id');
+        $serviceTypes = ServiceType::all()->pluck('id', 'id');
 
         $data = [];
         foreach ($nationalities as $nationalityId => $nationality) {

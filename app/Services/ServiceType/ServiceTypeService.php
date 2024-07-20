@@ -2,10 +2,10 @@
 
 namespace App\Services\ServiceType;
 
-use App\Services\BaseCrudService;
+use App\Bases\Crud\CrudBase;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-class ServiceTypeService extends BaseCrudService
+class ServiceTypeService extends CrudBase
 {
     protected string $model = 'App\\Models\\ServiceType\\ServiceType';
 }
