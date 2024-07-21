@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard\NationalityType;
 
-use App\Trait\ApiResponseTrait;
+use App\Trait\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Services\NationalityType\NationalityTypeService;
 use App\Http\Requests\Dashboard\NationalityType\NationalityTypeRequest;
@@ -11,7 +11,7 @@ use App\Http\Resources\Dashboard\NationalityType\ShowNationalityTypeResource;
 
 class NationalityTypeController extends Controller
 {
-    use ApiResponseTrait;
+    use ApiResponse;
     public function __construct(protected NationalityTypeService $nationalityTypeService)
     {
     }

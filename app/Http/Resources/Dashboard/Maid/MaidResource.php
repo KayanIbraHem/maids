@@ -18,9 +18,7 @@ class MaidResource extends JsonResource
     {
         return [
             'id' => $this->id ?? 0,
-            'first_name' => $this->first_name ?? "",
-            'last_name' => $this->last_name ?? "",
-            'phone' => $this->phone ?? "",
+            'name' => $this->name ?? "",
             'age' => $this->age ?? "",
             'image' => $this->imageLink ?? "",
             'cv' => $this->cvLink ?? "",

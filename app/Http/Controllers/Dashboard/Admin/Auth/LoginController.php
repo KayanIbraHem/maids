@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard\Admin\Auth;
 
 use App\Models\Admin\Admin;
 use Illuminate\Http\Request;
-use App\Trait\ApiResponseTrait;
+use App\Trait\ApiResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\Dashboard\Admin\AdminResource;
@@ -13,7 +13,7 @@ use App\Services\Admin\AuthService;
 
 class LoginController extends Controller
 {
-    use ApiResponseTrait;
+    use ApiResponse;
     public function __construct(private AuthService $authService)
     {
     }

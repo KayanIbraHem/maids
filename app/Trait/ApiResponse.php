@@ -2,7 +2,7 @@
 
 namespace App\Trait;
 
-trait ApiResponseTrait
+trait ApiResponse
 {
     public function errorResponse($msg, $code)
     {

@@ -2,13 +2,14 @@
 
 namespace App\Bases\Auth;
 
-use App\Trait\ApiResponseTrait;
+use App\Trait\ApiResponse;
+use App\Trait\UserAuthentication;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthBase
 {
-    use ApiResponseTrait;
+    use UserAuthentication;
 
     protected string $model;
     protected string $guard;
@@ -40,21 +41,5 @@ class AuthBase
             throw new \Exception(__('auth.email_not_found'));
         }
         return $row;
-    }
-
-    protected function validateCredentials($row, string $password)
-    {
-        if (!Hash::check($password, $row->password)) {
-            throw new \Exception(__('auth.credentials_incorrect'));
-        }
-    }
-    protected function getAuthenticatedUser()
-    {
-        return Auth::guard($this->guard)->user();
-    }
-
-    protected function generateApiToken()
-    {
-        return hashApiToken();
     }
 }

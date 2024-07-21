@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard\Nationality;
 
 use Illuminate\Http\Request;
-use App\Trait\ApiResponseTrait;
+use App\Trait\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Models\Nationality\Nationality;
 use App\Services\Nationality\NationalityService;
@@ -13,7 +13,7 @@ use App\Http\Resources\Dashboard\Nationality\ShowNationalityResource;
 
 class NationalityController extends Controller
 {
-    use ApiResponseTrait;
+    use ApiResponse;
 
     public function __construct(private NationalityService $nationalityService)
     {

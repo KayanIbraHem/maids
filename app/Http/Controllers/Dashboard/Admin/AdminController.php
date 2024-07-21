@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard\Admin;
 
 use Illuminate\Http\Request;
-use App\Trait\ApiResponseTrait;
+use App\Trait\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\AdminService;
 use App\Http\Resources\Dashboard\Admin\AdminResource;
@@ -12,7 +12,7 @@ use App\Http\Requests\Dashboard\Admin\UpdateAdminRequest;
 
 class AdminController extends Controller
 {
-    use ApiResponseTrait;
+    use ApiResponse;
     public function __construct(private AdminService $adminService)
     {
     }

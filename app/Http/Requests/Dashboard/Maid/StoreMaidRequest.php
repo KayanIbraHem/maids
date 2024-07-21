@@ -16,9 +16,7 @@ class StoreMaidRequest extends RequestHandle
     public function rules(): array
     {
         return [
-            'first_name' => 'required|min:4|max:255',
-            'last_name' => 'required|min:4|max:255',
-            'phone' => 'nullable|unique:maids,phone',
+            'name' => 'required|min:4|max:255',
             'age' => 'required|numeric|min:1|max:100',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'cv' => 'nullable|mimes:pdf',
@@ -29,12 +27,9 @@ class StoreMaidRequest extends RequestHandle
     public function messages(): array
     {
         return [
-            'first_name.required' => __('auth.first_name_required'),
-            'first_name.min' => __('auth.first_name_min'),
-            'first_name.max' => __('auth.first_name_max'),
-            'last_name.required' => __('auth.last_name_required'),
-            'last_name.min' => __('auth.last_name_min'),
-            'last_name.max' => __('auth.last_name_max'),
+            'name.required' => __('auth.name_required'),
+            'name.min' => __('auth.name_min'),
+            'name.max' => __('auth.name_max'),
             'phone_unique' => __('auth.phone_unique'),
             'age.required' => __('auth.age_required'),
             'age.numeric' => __('auth.age_numeric'),

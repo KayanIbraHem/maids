@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard\Term;
 
 use App\Models\Term\Term;
 use Illuminate\Http\Request;
-use App\Trait\ApiResponseTrait;
+use App\Trait\ApiResponse;
 use App\Services\Term\TermService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Term\TermRequest;
@@ -13,7 +13,7 @@ use App\Http\Resources\Dashboard\Term\ShowTermResource;
 
 class TermController extends Controller
 {
-    use ApiResponseTrait;
+    use ApiResponse;
     public function __construct(private TermService $termService)
     {
     }

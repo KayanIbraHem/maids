@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard\Policy;
 
 use Illuminate\Http\Request;
 use App\Models\Policy\Policy;
-use App\Trait\ApiResponseTrait;
+use App\Trait\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Policy\PolicyRequest;
 use App\Services\Policy\PolicyService;
@@ -13,7 +13,7 @@ use App\Http\Resources\Dashboard\Policy\ShowPolicyResource;
 
 class PolicyController extends Controller
 {
-    use ApiResponseTrait;
+    use ApiResponse;
     public function __construct(private PolicyService $policyService)
     {
     }

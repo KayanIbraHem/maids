@@ -5,12 +5,12 @@ namespace App\Http\Middleware;
 use Closure;
 use App\Enums\AdminType;
 use Illuminate\Http\Request;
-use App\Trait\ApiResponseTrait;
+use App\Trait\ApiResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 class SuperAdmin
 {
-    use ApiResponseTrait;
+    use ApiResponse;
 
     public function handle(Request $request, Closure $next): Response
     {

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard\ServiceType;
 
 use Illuminate\Http\Request;
-use App\Trait\ApiResponseTrait;
+use App\Trait\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Services\ServiceType\ServiceTypeService;
 use App\Http\Requests\Dashboard\ServiceType\ServiceTypeRequest;
@@ -12,7 +12,7 @@ use App\Http\Resources\Dashboard\ServiceType\ShowServiceTypeResource;
 
 class ServiceTypeController extends Controller
 {
-    use ApiResponseTrait;
+    use ApiResponse;
 
     public function __construct(private ServiceTypeService $serviceTypeService)
     {

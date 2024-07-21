@@ -12,10 +12,8 @@ class MaidService extends CrudBase
     public function store(array $data)
     {
         return Maid::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
+            'name' => $data['name'],
             'age' => $data['age'],
-            'phone' => $data['phone'],
             'image' => uploadImage($data, 'image', 'maids'),
             'cv' => uploadPdf($data, 'maids'),
             'nationality_id' => $data['nationality_id'],
@@ -26,10 +24,8 @@ class MaidService extends CrudBase
     {
         $row =  $this->getRowById($id);
         $row->update([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
+            'name' => $data['name'],
             'age' => $data['age'],
-            'phone' => $data['phone'],
             'image' => updateImage($data, $row, 'maids'),
             'cv' => updatePdf($data, $row, 'maids'),
             'nationality_id' => $data['nationality_id'],
