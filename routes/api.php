@@ -2,17 +2,16 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
-
+use App\Http\Controllers\Api\User\Auth\ApiLoginController;
+use App\Http\Controllers\Api\User\Auth\ApiChangePasswordController;
 
 
 Route::group([
     'prefix' => 'v1',
 ], function () {
-    Route::get('testv1', function () {
-        return 'from v1';
+    Route::post('login', [ApiLoginController::class, 'login']);
+
+    Route::group(['middleware' => ['auth:api']], function () {
+        Route::post('change_password', [ApiChangePasswordController::class, 'changePassword']);
     });
 });

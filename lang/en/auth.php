@@ -7,6 +7,7 @@ return [
     //NAME
     'name_required' => "Name is required",
     'name_min' => "The Name field must be at least 4 characters",
+    'name_max'=> "The Name field must be at most 255 characters",
     'first_name_required' => "First Name is required",
     'first_name_min' => "The First Name field must be at least 4 characters",
     'first_name_max' => "The First Name field must be at most 255 characters",
@@ -26,6 +27,7 @@ return [
     //GENERAL.PASSWORD
     'password_required' => "Password is required",
     'password_min' => "The password field must be at least 8 characters",
+    'success_change_password' => "Successfully change password",
     //GENERAL.LOGIN
     "success_login" => "Successfully login",
     //GENERAL.MIDDLEWARE

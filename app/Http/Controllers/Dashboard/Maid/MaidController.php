@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard\Maid;
 
 use App\Models\Maid\Maid;
-use App\Trait\ApiResponseTrait;
+use App\Trait\ApiResponse;
 use App\Services\Maid\MaidService;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Dashboard\Maid\MaidResource;
@@ -12,7 +12,7 @@ use App\Http\Requests\Dashboard\Maid\UpdateMaidRequest;
 
 class MaidController extends Controller
 {
-    use ApiResponseTrait;
+    use ApiResponse;
     public function __construct(private MaidService $maidService)
     {
     }

@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('maids', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
+            $table->string('name')->nullable();
             $table->tinyInteger('age')->nullable();
-            $table->string('phone')->unique()->nullable();
             $table->string('image')->nullable();
             $table->string('cv')->nullable();
             $table->foreignId('nationality_id')->references('id')->on('nationalities')->onDelete('cascade')->onUpdate('cascade');

@@ -28,10 +28,8 @@ class MaidSeeder extends Seeder
 
         for ($i = 0; $i < 10; $i++) {
             Maid::create([
-                'first_name' => $faker->firstName,
-                'last_name' => $faker->lastName,
+                'name' => $faker->name,
                 'age' => $faker->numberBetween(20, 45),
-                'phone' => $faker->phoneNumber,
                 'image' => 'default/Maid/defaultUser.jpg',
                 'cv' => 'default/Maid/defaultPdf.pdf',
                 'nationality_id' => $nationalities[array_rand($nationalities)],
