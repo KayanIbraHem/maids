@@ -23,6 +23,24 @@ class AuthBase
         $row->update(['api_token' => $this->generateApiToken()]);
         return $row;
     }
+    public function register(array $request)
+    {
+        return  $this->model::create([
+            'first_name' => $request['first_name'],
+            'last_name' => $request['last_name'],
+            'email' => $request['email'],
+            'password' => hashUserPassword($request['password']),
+            'phone' => $request['phone'],
+            'image' => uploadImage($request, 'image', 'users'),
+        ]);
+    }
+
+    public function logout()
+    {
+        $user = $this->getAuthenticatedUser();
+        $user->update(["api_token" => null]);
+    }
+
     public function changePassword(object $request)
     {
         $user = $this->getAuthenticatedUser();

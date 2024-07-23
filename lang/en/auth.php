@@ -7,7 +7,7 @@ return [
     //NAME
     'name_required' => "Name is required",
     'name_min' => "The Name field must be at least 4 characters",
-    'name_max'=> "The Name field must be at most 255 characters",
+    'name_max' => "The Name field must be at most 255 characters",
     'first_name_required' => "First Name is required",
     'first_name_min' => "The First Name field must be at least 4 characters",
     'first_name_max' => "The First Name field must be at most 255 characters",
@@ -18,7 +18,7 @@ return [
     'age_numeric' => "The Age must be a number",
     'age_min' => "The Age field must be at least 1",
     'age_max' => "The Age field must be at most 100",
-    'phone_unique'=>"Phone has already been taken",
+    'phone_unique' => "Phone has already been taken",
     //GENERAL.EMAIL
     'email_not_found' => "Email not found",
     'email_required' => "Email is required",
@@ -27,15 +27,22 @@ return [
     //GENERAL.PASSWORD
     'password_required' => "Password is required",
     'password_min' => "The password field must be at least 8 characters",
+    'password_max' => "The password field must be at most 255 characters",
+    'password_confirmed' => "The password confirmation does not match",
     'success_change_password' => "Successfully change password",
     //GENERAL.LOGIN
     "success_login" => "Successfully login",
+    //GENERAL.LOGOUT
+    "success_logout" => "Successfully logout",
     //GENERAL.MIDDLEWARE
     'permission_denied' => "Permission Denied, you do not have access ",
+    //GENERAL.REGISTER
+    'success_register' => "Successfully register",
     //IMAGE
     'image_invalid' => 'The image is not valid',
     'image_mimes' => 'The image must be a file of type: png, jpg, jpeg',
     //FILE
     'cv_invalid' => 'The cv is not valid',
     'cv_mimes' => 'The cv must be a file of type: pdf',
+
 ];

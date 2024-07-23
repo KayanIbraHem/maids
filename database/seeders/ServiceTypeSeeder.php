@@ -18,12 +18,12 @@ class ServiceTypeSeeder extends Seeder
         DB::table('service_types')->delete();
         $data = [
             'title_ar' =>  [
-                'استخدام',
+                'استقدام',
                 'باقات شهرية',
                 'نقل خدمات'
             ],
             'title_en' => [
-                'Use',
+                'Admission',
                 'monthly packages',
                 'transfer services'
             ],
