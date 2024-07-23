@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Maid;
+namespace App\Services\Dashboard\Maid;
 
 use App\Models\Maid\Maid;
 use App\Bases\Crud\CrudBase;

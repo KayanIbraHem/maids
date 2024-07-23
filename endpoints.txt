@@ -1,0 +1,13 @@
+
+ fetch_maids
+
+ fetch_nationalities
+
+ fetch_service_type
+
+ fetch_maids_by_nationality_id
+
+ fetch_maids_by_service_type
+
+ fetch_maid_by_id
+

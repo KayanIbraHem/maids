@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\ServiceType;
+namespace App\Services\Dashboard\ServiceType;
 
 use App\Bases\Crud\CrudBase;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;

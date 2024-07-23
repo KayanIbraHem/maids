@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Services\Policy;
+namespace App\Services\Dashboard\Term;
 
 use App\Bases\Crud\CrudBase;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-class PolicyService extends CrudBase
+class TermService extends CrudBase
 {
-    protected string $model = 'App\\Models\\Policy\\Policy';
+    protected string $model = 'App\\Models\\Term\\Term';
     protected function prepareData(array $dataRequest): array
     {
         $data = [];
         foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
             $data[$localeCode] = [
+                'title' => $dataRequest['title_' . $localeCode],
                 'description' => $dataRequest['description_' . $localeCode],
             ];
         }

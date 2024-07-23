@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard\Admin\Auth;
 
 use Illuminate\Http\Request;
 use App\Trait\ApiResponse;
-use App\Services\Admin\AuthService;
+use App\Services\Dashboard\Admin\AuthService;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Dashboard\Admin\AdminResource;
 use App\Http\Requests\Dashboard\Admin\Auth\ChangePasswordRequest;

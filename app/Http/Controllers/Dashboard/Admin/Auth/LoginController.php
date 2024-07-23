@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\Dashboard\Admin\AdminResource;
 use App\Http\Requests\Dashboard\Admin\Auth\LoginRequest;
-use App\Services\Admin\AuthService;
+use App\Services\Dashboard\Admin\AuthService;
 
 class LoginController extends Controller
 {

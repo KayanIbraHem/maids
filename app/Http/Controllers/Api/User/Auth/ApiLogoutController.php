@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Api\User\Auth;
 
 use App\Trait\ApiResponse;
 use App\Http\Controllers\Controller;
-use App\Services\User\Auth\ApiAuthService;
-use App\Http\Requests\Api\User\Auth\ApiLoginRequest;
-use App\Http\Resources\Api\User\Auth\ApiUserResource;
+use App\Services\Api\User\Auth\ApiAuthService;
 
 class ApiLogoutController extends Controller
 {

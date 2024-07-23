@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Admin;
+namespace App\Services\Dashboard\Admin;
 
 use App\Models\Admin\Admin;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\User\Auth;
+namespace App\Services\Api\User\Auth;
 
 use App\Bases\Auth\AuthBase;
 

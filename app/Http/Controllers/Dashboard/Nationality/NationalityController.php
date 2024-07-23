@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Trait\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Models\Nationality\Nationality;
-use App\Services\Nationality\NationalityService;
+use App\Services\Dashboard\Nationality\NationalityService;
 use App\Http\Requests\Dashboard\Nationality\NationalityRequest;
 use App\Http\Resources\Dashboard\Nationality\NationalityResource;
 use App\Http\Resources\Dashboard\Nationality\ShowNationalityResource;

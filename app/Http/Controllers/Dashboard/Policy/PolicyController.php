@@ -7,7 +7,7 @@ use App\Models\Policy\Policy;
 use App\Trait\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Policy\PolicyRequest;
-use App\Services\Policy\PolicyService;
+use App\Services\Dashboard\Policy\PolicyService;
 use App\Http\Resources\Dashboard\Policy\PolicyResource;
 use App\Http\Resources\Dashboard\Policy\ShowPolicyResource;
 
