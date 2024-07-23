@@ -22,9 +22,9 @@ class ApiChangePasswordController extends Controller
     public function changePassword(ChangePasswordRequest $request)
     {
         try {
-            $admin = $this->apiAuthService->changePassword($request);
+            $user = $this->apiAuthService->changePassword($request);
             $msg = __('auth.success_change_password');
-            $data = new ApiUserResource($admin);
+            $data = new ApiUserResource($user);
             return $this->dataResponse($msg, $data, 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);

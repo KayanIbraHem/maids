@@ -8,19 +8,18 @@ use App\Services\User\Auth\ApiAuthService;
 use App\Http\Requests\Api\User\Auth\ApiLoginRequest;
 use App\Http\Resources\Api\User\Auth\ApiUserResource;
 
-class ApiLoginController extends Controller
+class ApiLogoutController extends Controller
 {
     use ApiResponse;
     public function __construct(private ApiAuthService $apiAuthService)
     {
     }
-    public function login(ApiLoginRequest $request)
+    public function logout()
     {
         try {
-            $user = $this->apiAuthService->login($request);
-            $msg = __('auth.success_login');
-            $data = new ApiUserResource($user);
-            return $this->dataResponse($msg, $data, 200);
+            $this->apiAuthService->logout();
+            $msg = __('auth.success_logout');
+            return $this->successResponse($msg, 200);
         } catch (\Exception $e) {
             return $this->errorResponse($e->getMessage(), 500);
         }
