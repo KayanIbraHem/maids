@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers\Api\User\Auth;
 
-use Illuminate\Http\Request;
 use App\Trait\ApiResponse;
-use App\Services\Admin\AuthService;
 use App\Http\Controllers\Controller;
-use App\Services\User\Auth\ApiAuthService;
+use App\Services\Api\User\Auth\ApiAuthService;
 use App\Http\Resources\Api\User\Auth\ApiUserResource;
-use App\Http\Resources\Dashboard\Admin\AdminResource;
-use App\Http\Requests\Dashboard\Admin\Auth\ChangePasswordRequest;
+use App\Http\Requests\Api\User\Auth\ApiChangePasswordRequest;
 
 class ApiChangePasswordController extends Controller
 {
@@ -19,7 +16,7 @@ class ApiChangePasswordController extends Controller
     {
     }
 
-    public function changePassword(ChangePasswordRequest $request)
+    public function changePassword(ApiChangePasswordRequest $request)
     {
         try {
             $user = $this->apiAuthService->changePassword($request);

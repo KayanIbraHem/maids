@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dashboard\Admin;
 use Illuminate\Http\Request;
 use App\Trait\ApiResponse;
 use App\Http\Controllers\Controller;
-use App\Services\Admin\AdminService;
+use App\Services\Dashboard\Admin\AdminService;
 use App\Http\Resources\Dashboard\Admin\AdminResource;
 use App\Http\Requests\Dashboard\Admin\StoreAdminRequest;
 use App\Http\Requests\Dashboard\Admin\UpdateAdminRequest;

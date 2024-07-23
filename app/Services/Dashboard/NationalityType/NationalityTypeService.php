@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\NationalityType;
+namespace App\Services\Dashboard\NationalityType;
 
 use App\Bases\Crud\CrudBase;
 use App\Models\NationalityType\NationalityType;

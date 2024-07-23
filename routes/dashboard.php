@@ -21,6 +21,8 @@ Route::group([
     Route::post('login', [LoginController::class, 'login']);
 
     Route::group(['middleware' => ['auth:admin']], function () {
+        //CHANGE PASSWORD
+        Route::post('change_password', [ChangePasswordController::class, 'changePassword']);
         Route::group(['middleware' => ['superAdmin']], function () {
             //ADMIN
             Route::controller(AdminController::class)->group(function () {
@@ -30,8 +32,6 @@ Route::group([
                 Route::get('show_admin/{admin}', 'show');
                 Route::delete('delete_admin/{admin}', 'delete');
             });
-            //CHANGE PASSWORD
-            Route::post('change_password', [ChangePasswordController::class, 'changePassword']);
         });
         //SERVICETYPE
         Route::controller(ServiceTypeController::class)->group(function () {

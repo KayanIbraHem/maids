@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard\Maid;
 
 use App\Models\Maid\Maid;
 use App\Trait\ApiResponse;
-use App\Services\Maid\MaidService;
+use App\Services\Dashboard\Maid\MaidService;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Dashboard\Maid\MaidResource;
 use App\Http\Requests\Dashboard\Maid\StoreMaidRequest;
