@@ -14,7 +14,6 @@ class AuthBase
     protected string $model;
     protected string $guard;
 
-
     public function login(object $request)
     {
         $credentials = $request->only('email', 'password');
