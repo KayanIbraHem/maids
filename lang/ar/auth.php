@@ -19,6 +19,13 @@ return [
     'age_min' => "حقل العمر يجب الا يقل عن 1",
     'age_max' => "حقل العمر يجب الا يزيد عن 100",
     'phone_unique' => "هذا الهاتف مستخدم بالفعل",
+    //GENERAL.PHONE
+    'phone_required' => "رقم الهاتف مطلوب",
+    'phone_unique' => "هذا الهاتف مستخدم بالفعل",
+    'phone_not_found' => "رقم الهاتف غير موجود",
+    'country_code_required' => "الرمز الدولي مطلوب",
+    'country_code_numeric'  => "الرمز الدولي يجب ان يكون رقم",
+    'country_code_regex'    => "الرمز الدولي يجب ان يكون رقم صحيح",
     //GENERAL.EMAIL
     'email_not_found' => "البريد الالكتروني غير موجود",
     'email_required' => "البريد الالكتروني مطلوب",
@@ -29,6 +36,7 @@ return [
     'password_min' => "حقل كلمه المرور يجب الا يقل عن 8 حروف",
     'password_confirmed' => "كلمة المرور غير متطابقة",
     'success_change_password' => "تم تغيير كلمة المرور بنجاح",
+    'success_reset_password' => "تم إعادة تعيين كلمة المرور بنجاح",
     //GENERAL.LOGIN
     "success_login" => "تم تسجيل الدخول بنجاح",
     //GENERAL.LOGOUT

@@ -78,3 +78,7 @@ function hashApiToken()
 {
     return Hash::make(rand(99, 99999999));
 }
+function userApiToken(Model $model, string $name)
+{
+    return $model->createToken($name)->plainTextToken;
+}

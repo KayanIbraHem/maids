@@ -59,4 +59,12 @@ class AuthBase
         }
         return $row;
     }
+    protected function getRowByPhone(string $phone)
+    {
+        $row = $this->model::wherePhone($phone)->first();
+        if (!$row) {
+            throw new \Exception(__('auth.phone_not_found'));
+        }
+        return $row;
+    }
 }

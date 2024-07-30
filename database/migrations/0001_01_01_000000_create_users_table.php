@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
+            $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('phone')->unique();
-            $table->text('api_token')->nullable();
+            $table->string('country_code')->nullable();
+            $table->boolean('is_phone_verified')->default(0)->nullable()->comment('0 = not verified, 1 = verified');
             $table->string('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->softDeletes();

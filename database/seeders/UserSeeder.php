@@ -22,13 +22,13 @@ class UserSeeder extends Seeder
 
         for ($i = 0; $i < 10; $i++) {
             User::create([
-                'first_name' => $faker->firstName,
-                'last_name' => $faker->lastName,
+                'name' => $faker->name,
                 'email' => $faker->safeEmail,
                 'password' => hashUserPassword('password'),
                 'phone' => $faker->phoneNumber,
+                'country_code' => $faker->countryCode,
+                'is_phone_verified' => 1,
                 'image' => 'default/User/defaultUser.jpg',
-                'api_token' => hashApiToken(),
                 'email_verified_at' => now(),
             ]);
         }

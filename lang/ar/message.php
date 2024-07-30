@@ -7,6 +7,8 @@ return [
     'success_update' => "تم التعديل بنجاح",
     'success_delete' => "تم الحذف بنجاح",
     'not_found' => "غير موجود",
+    'success_check_phone' => "تم التحقق بنجاح",
+    'phone_verified' => "تم التحقق من الهاتف بنجاح",
     //TITLEs
     'title_ar_required' => "الحقل العربي مطلوب",
     'title_en_required' => "الحقل الانجليزي مطلوب",
