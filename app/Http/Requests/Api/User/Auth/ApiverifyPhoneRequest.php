@@ -3,29 +3,34 @@
 namespace App\Http\Requests\Api\User\Auth;
 
 use App\Http\RequestHandler\RequestHandle;
-use Illuminate\Foundation\Http\FormRequest;
+use Symfony\Component\HttpFoundation\RequestStack;
 
-class ApiLoginRequest extends RequestHandle
+class ApiverifyPhoneRequest extends RequestHandle
 {
-
+    /**
+     * Determine if the user is authorized to make this request.
+     */
     public function authorize(): bool
     {
         return true;
     }
 
-
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
     public function rules(): array
     {
         return [
             'phone' => 'required',
-            'password' => 'required',
         ];
     }
+
     public function messages(): array
     {
         return [
             'phone.required' => __('auth.phone_required'),
-            'password.required' => __('auth.password_required'),
         ];
     }
 }

@@ -19,6 +19,13 @@ return [
     'age_min' => "The Age field must be at least 1",
     'age_max' => "The Age field must be at most 100",
     'phone_unique' => "Phone has already been taken",
+    //GENERAL.PHONE
+    'phone_required' => "Phone is required",
+    'phone_unique' => "The Phone has already been taken",
+    'phone_not_found' => "Phone not found",
+    'country_code_required' => "Country Code is required",
+    'country_code_numeric'  => "The Country Code must be a number",
+    'country_code_regex'    => "The Country Code must be a valid country code",
     //GENERAL.EMAIL
     'email_not_found' => "Email not found",
     'email_required' => "Email is required",
@@ -30,6 +37,7 @@ return [
     'password_max' => "The password field must be at most 255 characters",
     'password_confirmed' => "The password confirmation does not match",
     'success_change_password' => "Successfully change password",
+    'success_reset_password' => "Successfully reset password",
     //GENERAL.LOGIN
     "success_login" => "Successfully login",
     //GENERAL.LOGOUT

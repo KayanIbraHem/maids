@@ -9,7 +9,7 @@ class CrudBase
     protected string $model;
     public function index()
     {
-        return $this->model::paginate(5);
+        return $this->model::orderBy('id', 'desc')->paginate(5);
     }
     public function show(int $id)
     {

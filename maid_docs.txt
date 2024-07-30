@@ -1,0 +1,146 @@
+مبدابا يا عم ابراهيم مفيش حاجه ترجه بنلل لو استرنج يرجع "" لو ليست ترجع فاضيه لو اوبجيكت يرجع فاضي
+*(Auth)
+* login [done]
+  > action : login user and generate token
+  - input
+    -- phone
+    -- password
+    -- country_code
+    -- device_id     => nullable
+    -- device_type   => nullable
+    -- device_token  => nullable
+    -- os_type       => nullable
+  - output
+    -- status
+    -- message
+    -- data                             => UserResource
+
+* register [done]
+  - input
+    -- phone
+    -- name
+    -- email
+    -- image
+    -- country_code
+    -- password
+    -- device_id     => nullable
+    -- device_type   => nullable
+    -- device_token  => nullable
+    -- os_type       => nullable
+  - output
+    -- status
+    -- message
+    -- data                            => UserResource
+
+* check_phone [done]
+  > action : check phone number is exist or not
+  - input
+    -- phone
+  - output
+    -- status
+    -- message
+    -- data                             => bool
+
+* verify_phone
+  > action : set is_phone_verified to 1 in data base
+  - input
+    -- phone
+  - output
+    -- status
+    -- message
+    -- data                             => bool
+
+* reset_password [done]
+  > action : change password of user
+  - input
+    -- phone
+    -- password
+  - output
+    -- status
+    -- message
+
+* change_password  [done]   -> auth
+  - input
+    -- old_password
+    -- new_password
+  - output
+    -- status
+    -- message
+
+* fetch_package -> (get) (auth)
+  > action : fetch all packages
+  - input
+  - output
+    -- status
+    -- message
+    -- data                             => List<PackageResource>
+
+* set_package   -> (post) (auth)
+  > action :  filter nationality of chosse package
+  - input
+    -- package_id
+  - output
+    -- status
+    -- message
+    -- data                             => List<PackageResource>
+
+* fetch_nationality ->  (get) (auth)
+
+  > action : fetch all nationality
+  - input
+  - output
+    -- status
+    -- message
+    -- data                             => List<NationalityResource>
+
+* set_nationality   -> (post) (auth)
+  - input
+    -- array of nationl_ids
+  - output
+    -- status
+    -- message
+    -- data                             => List<NationalityResource>
+
+* delete_account   -> (get) (auth)
+  > action : delete user account
+  - input
+  - output
+    -- status
+    -- message
+
+* logout      =>  (post) (auth)
+  > action : logout user with device token
+  - input
+    -- device_id
+    -- device_token
+  - output
+    -- status
+    -- message
+
+======================= Resources =======================
+
+- UserResource [done]
+  -- id                           => int
+  -- name                         => String
+  -- phone                        => String
+  -- email                        => String
+  -- image                        => String
+  -- country_code                 => String
+  -- token                        => String
+  -- is_phone_verified            => int     (0 => not verified,1 => verified)
+  -- nationality                  => List<NationalityResource> or []
+  -- package                      => PackageResource or {}
+
+
+- NationalityResource
+  -- id                           => int
+  -- title                        => String
+  -- flag                         => String
+  -- code                         => String
+
+- PackageResource
+  -- id                           => int
+  -- title                        => String
+  -- description                  => String
+  -- price                        => String
+  -- image                        => String

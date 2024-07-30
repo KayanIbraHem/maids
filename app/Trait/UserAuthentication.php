@@ -4,6 +4,7 @@ namespace App\Trait;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Model;
 
 trait UserAuthentication
 {
@@ -21,5 +22,14 @@ trait UserAuthentication
     protected function generateApiToken()
     {
         return hashApiToken();
+    }
+    protected function generateUserApiToken(Model $model, string $name)
+    {
+        return userApiToken($model, $name);
+    }
+    protected function regenerateUserApiToken(Model $model, string $name)
+    {
+        $model->tokens()->delete();
+        return userApiToken($model, $name);
     }
 }

@@ -15,13 +15,14 @@ class ApiUserResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id ?? 0,
-            'first_name' => $this->first_name ?? "",
-            'last_name' => $this->last_name ?? "",
-            'email' => $this->email ?? "",
-            'phone' => $this->phone ?? "",
-            'image' => $this->imageLink ?? "",
-            'api_token' => $this->api_token ?? "",
+            'id' => (int) $this->id ?? 0,
+            'name' => (string) $this->name ?? "",
+            'email' => (string) $this->email ?? "",
+            'phone' => (string) $this->phone ?? "",
+            'country_code' => (string)  $this->country_code ?? "",
+            'image' => (string)  $this->imageLink ?? "",
+            'token' => (string)$this->token ?? "",
+            'is_phone_verified' => (int) $this->is_phone_verified ?? 0,
         ];
     }
 }
