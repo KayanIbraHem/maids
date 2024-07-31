@@ -40,7 +40,7 @@ class PolicyController extends Controller
     public function store(PolicyRequest $request)
     {
         try {
-            $policy = $this->policyService->store(data: $request->validated());
+            $policy = $this->policyService->store(dataRequest: $request->validated());
             return $this->dataResponse(__('message.success_create'),  new PolicyResource($policy), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);
@@ -49,7 +49,7 @@ class PolicyController extends Controller
     public function update(PolicyRequest $request, int $id)
     {
         try {
-            $policy = $this->policyService->update(data: $request->validated(), id: $id);
+            $policy = $this->policyService->update(dataRequest: $request->validated(), id: $id);
             return $this->dataResponse(__('message.success_update'),  new PolicyResource($policy), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);

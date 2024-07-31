@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\User\Auth\ApiLogoutController;
 use App\Http\Controllers\Api\User\Auth\ApiRegisterController;
 use App\Http\Controllers\Api\User\Auth\ApiCheckPhoneController;
 use App\Http\Controllers\Api\User\Auth\ApiVerifyPhoneController;
+use App\Http\Controllers\Api\ServiceType\ApiServiceTypeController;
 use App\Http\Controllers\Api\User\Auth\ApiResetPasswordController;
 use App\Http\Controllers\Api\User\Auth\ApiChangePasswordController;
 
@@ -22,5 +23,10 @@ Route::group([
     Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('change_password', [ApiChangePasswordController::class, 'changePassword']);
         Route::post('logout', [ApiLogoutController::class, 'logout']);
+        //SERVICE TYPE
+        Route::controller(ApiServiceTypeController::class)->group(function () {
+            Route::get('fetch_service_types', 'serviceTypes');
+            Route::post('fetch_service_type_by_id', 'fetchServiceTypeById');
+        });
     });
 });

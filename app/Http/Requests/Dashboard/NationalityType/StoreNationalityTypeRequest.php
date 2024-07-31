@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\RequestHandler\RequestHandle;
 use Illuminate\Foundation\Http\FormRequest;
 
-class NationalityTypeRequest extends RequestHandle
+class StoreNationalityTypeRequest extends RequestHandle
 {
     public function authorize(): bool
     {

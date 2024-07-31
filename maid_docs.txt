@@ -41,7 +41,7 @@
     -- message
     -- data                             => bool
 
-* verify_phone
+* verify_phone [done]
   > action : set is_phone_verified to 1 in data base
   - input
     -- phone
@@ -67,7 +67,7 @@
     -- status
     -- message
 
-* fetch_package -> (get) (auth)
+* fetch_package ->  [done] (get) (auth)
   > action : fetch all packages
   - input
   - output

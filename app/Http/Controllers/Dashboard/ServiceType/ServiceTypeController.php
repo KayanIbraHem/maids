@@ -40,7 +40,7 @@ class ServiceTypeController extends Controller
     public function store(ServiceTypeRequest $request)
     {
         try {
-            $serviceType = $this->serviceTypeService->store(data: $request->validated());
+            $serviceType = $this->serviceTypeService->store(dataRequest: $request->validated());
             return $this->dataResponse(__('message.success_create'),  new ServiceTypeResource($serviceType), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);
@@ -49,7 +49,7 @@ class ServiceTypeController extends Controller
     public function update(ServiceTypeRequest $request, int $id)
     {
         try {
-            $serviceType = $this->serviceTypeService->update(data: $request->validated(), id: $id);
+            $serviceType = $this->serviceTypeService->update(dataRequest: $request->validated(), id: $id);
             return $this->dataResponse(__('message.success_update'),  new ServiceTypeResource($serviceType), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);

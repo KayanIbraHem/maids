@@ -14,6 +14,8 @@ use App\Http\Controllers\Dashboard\Nationality\NationalityController;
 use App\Http\Controllers\Dashboard\ServiceType\ServiceTypeController;
 use App\Http\Controllers\Dashboard\Admin\Auth\ChangePasswordController;
 use App\Http\Controllers\Dashboard\NationalityType\NationalityTypeController;
+use App\Http\Controllers\Dashboard\EndPoint\Nationality\FetchNationalityController;
+use App\Http\Controllers\Dashboard\EndPoint\ServiceType\FetchServiceTypeController;
 
 Route::group([
     'prefix' => 'dashboard',
@@ -81,5 +83,10 @@ Route::group([
             Route::get('show_maid/{maid}', 'show');
             Route::delete('delete_maid/{maid}', 'delete');
         });
+        //END POINTS
+        //SERVICETYPE
+        Route::get('fetch_service_types', FetchServiceTypeController::class);
+        //NATIONALITY
+        Route::get('fetch_nationalities', FetchNationalityController::class);
     });
 });
