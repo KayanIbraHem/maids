@@ -57,6 +57,19 @@ function uploadPdf($request, string $folder)
         return 'files/' . $path;
     }
 }
+function getTranslation($field, $language, Model $model)
+{
+    if ($language == null) {
+        $language = 'en';
+    }
+    if (isset($model)) {
+        if ($model->has('translations') && $model->translations) {
+            $translation = $model->translations->where('locale', $language)->first();
+            return $translation ? $translation->$field : $model->translations->where('locale', 'en')->first()->$field ?? null;
+        }
+    }
+    return null;
+}
 function deletePdf($path)
 {
     File::delete(public_path($path));

@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Dashboard\NationalityType;
 use App\Trait\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Services\Dashboard\NationalityType\NationalityTypeService;
-use App\Http\Requests\Dashboard\NationalityType\NationalityTypeRequest;
 use App\Http\Resources\Dashboard\NationalityType\NationalityTypeResource;
+use App\Http\Requests\Dashboard\NationalityType\StoreNationalityTypeRequest;
+use App\Http\Requests\Dashboard\NationalityType\UpdateNationalityTypeRequest;
 use App\Http\Resources\Dashboard\NationalityType\ShowNationalityTypeResource;
 
 class NationalityTypeController extends Controller
@@ -35,7 +36,7 @@ class NationalityTypeController extends Controller
             return $this->returnException($e->getMessage(), 500);
         }
     }
-    public function store(NationalityTypeRequest $request)
+    public function store(StoreNationalityTypeRequest $request)
     {
         try {
             $nationalityType = $this->nationalityTypeService->store(dataRequest: $request->validated());
@@ -44,7 +45,7 @@ class NationalityTypeController extends Controller
             return $this->returnException($e->getMessage(), 500);
         }
     }
-    public function update(NationalityTypeRequest $request, int $id)
+    public function update(UpdateNationalityTypeRequest $request, int $id)
     {
         try {
             $nationalityType = $this->nationalityTypeService->update(dataRequest: $request->validated(), id: $id);

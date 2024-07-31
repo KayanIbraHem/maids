@@ -41,7 +41,7 @@ class NationalityController extends Controller
     public function store(NationalityRequest $request)
     {
         try {
-            $admin = $this->nationalityService->store(data: $request->validated());
+            $admin = $this->nationalityService->store(dataRequest: $request->validated());
             return $this->dataResponse(__('message.success_create'),  new NationalityResource($admin), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);
@@ -50,7 +50,7 @@ class NationalityController extends Controller
     public function update(NationalityRequest $request, int $id)
     {
         try {
-            $admin = $this->nationalityService->update(data: $request->validated(), id: $id);
+            $admin = $this->nationalityService->update(dataRequest: $request->validated(), id: $id);
             return $this->dataResponse(__('message.success_update'),  new NationalityResource($admin), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);

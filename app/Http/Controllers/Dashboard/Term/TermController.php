@@ -40,7 +40,7 @@ class TermController extends Controller
     public function store(TermRequest $request)
     {
         try {
-            $term = $this->termService->store(data: $request->validated());
+            $term = $this->termService->store(dataRequest: $request->validated());
             return $this->dataResponse(__('message.success_create'),  new TermResource($term), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);
@@ -49,7 +49,7 @@ class TermController extends Controller
     public function update(TermRequest $request, int $id)
     {
         try {
-            $term = $this->termService->update(data: $request->validated(), id: $id);
+            $term = $this->termService->update(dataRequest: $request->validated(), id: $id);
             return $this->dataResponse(__('message.success_update'),  new TermResource($term), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);
