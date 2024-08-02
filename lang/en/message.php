@@ -7,7 +7,7 @@ return [
     'success_update' => "update successfuly",
     'success_delete' => "delete successfuly",
     'not_found' => "not found",
-    'success_check_phone' => "check phone successfuly", 
+    'success_check_phone' => "check phone successfuly",
     'phone_verified' => "Phone Verified successfully",
     //TITLEs
     'title_ar_required' => "title in arabic is required",
@@ -31,4 +31,7 @@ return [
     'price_required' => "price is required",
     'price_numeric' => "price must be numeric",
     'nationality_service_type_unique' => 'The combination of nationality and service type must be unique',
+    //IMAGE
+    'image_invalid' => 'The image is not valid',
+    'image_mimes' => 'The image must be a file of type: png, jpg, jpeg',
 ];

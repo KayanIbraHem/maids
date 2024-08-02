@@ -17,6 +17,8 @@ class NationalityRequest extends RequestHandle
         return [
             'title_ar' => 'required|min:4|max:255',
             'title_en' => 'required|min:4|max:255',
+            'code' => 'nullable',
+            'flag' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
     public function messages(): array
@@ -28,6 +30,8 @@ class NationalityRequest extends RequestHandle
             'title_en.min' => __('message.title_en_min'),
             'title_ar.max' => __('message.title_ar_max'),
             'title_en.max' => __('message.title_en_max'),
+            'flag.mimes' => __('message.image_mimes'),
+            'flag.image' => __('message.image_invalid'),
         ];
     }
 }

@@ -17,7 +17,7 @@ class FetchNationalityController extends Controller
     public function __invoke()
     {
         try {
-            $nationalities = $this->fetchNationalityService->index();
+            $nationalities = $this->fetchNationalityService->fetchNationalities();
             $response = NationalityResource::collection($nationalities);
             return $this->dataResponse('fetch all nationalities', $response, 200);
         } catch (\Exception $e) {

@@ -2,10 +2,18 @@
 
 namespace App\Services\Dashboard\EndPoint\Nationality;
 
-use App\Bases\Crud\CrudBase;
+use App\Bases\CrudOperation\CrudOperationBase;
 
-class FetchNationalityService extends CrudBase
+class FetchNationalityService
 {
-    protected string $model = 'App\\Models\\Nationality\\Nationality';
-    protected bool $hasPaginate = false;
+
+    public function __construct(protected CrudOperationBase $crudOperationBase)
+    {
+        $this->crudOperationBase->setModel('App\\Models\\Nationality\\Nationality');
+        $this->crudOperationBase->setHasPaginate(false);
+    }
+    public function fetchNationalities()
+    {
+        return $this->crudOperationBase->index();
+    }
 }

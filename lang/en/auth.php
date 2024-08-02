@@ -52,5 +52,9 @@ return [
     //FILE
     'cv_invalid' => 'The cv is not valid',
     'cv_mimes' => 'The cv must be a file of type: pdf',
-
+    //MAID
+    'nationality_id_required' => "The Nationality is required",
+    'nationality_id_exists' => "The Nationality is not exists",
+    'service_type_id_required' => "The Service Type is required",
+    'service_type_id_exists' => "The Service Type is not exists",
 ];

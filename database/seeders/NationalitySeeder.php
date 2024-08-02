@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Handler\TitleLocalcodeHandler;
@@ -16,6 +17,8 @@ class NationalitySeeder extends Seeder
      */
     public function run(): void
     {
+        $faker = Factory::create();
+
         DB::table('nationalities')->delete();
         $data = [
             'title_ar' =>  [
@@ -39,14 +42,23 @@ class NationalitySeeder extends Seeder
                 'Sudan',
             ],
         ];
+
         $count = count($data['title_ar']);
         for ($i = 0; $i < $count; $i++) {
+
+            $data['code'] = $faker->countryCode;
+            $data['flag'] = 'default/Flag/defaultFlag.jpg';
+
             foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
-                $titles[$localeCode] = [
+                $nationalityData[$localeCode] = [
                     'title' => $data['title_' . $localeCode][$i],
                 ];
             }
-            Nationality::create($titles);
+
+            $nationalityData['code'] = $data['code'];
+            $nationalityData['flag'] = $data['flag'];
+
+            Nationality::create($nationalityData);
         }
     }
 }

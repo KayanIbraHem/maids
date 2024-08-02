@@ -2,11 +2,18 @@
 
 namespace App\Services\Dashboard\EndPoint\ServiceType;
 
-use App\Bases\Crud\CrudBase;
+use App\Bases\CrudOperation\CrudOperationBase;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-class FetchServiceTypeService extends CrudBase
+class FetchServiceTypeService
 {
-    protected string $model = 'App\\Models\\ServiceType\\ServiceType';
-    protected bool $hasPaginate = false;
+    public function __construct(protected CrudOperationBase $crudOperationBase)
+    {
+        $this->crudOperationBase->setModel('App\\Models\\ServiceType\\ServiceType');
+        $this->crudOperationBase->setHasPaginate(false);
+    }
+    public function fetchServiceTypes()
+    {
+        return $this->crudOperationBase->index();
+    }
 }

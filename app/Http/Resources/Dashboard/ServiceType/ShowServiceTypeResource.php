@@ -14,13 +14,7 @@ class ShowServiceTypeResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $titles = [];
-        foreach ($this?->translations as $translation) {
-            $titles[] = [
-                'locale' => $translation?->locale ?? "",
-                'title' => $translation?->title ?? "",
-            ];
-        }
+        $titles = getTranslationAndLocale($this?->translations, 'title');
         return [
             'id' => $this->id ?? 0,
             'titles' => $titles ?? []
