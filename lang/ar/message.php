@@ -31,4 +31,7 @@ return [
     'price_required' => "السعر مطلوب",
     'price_numeric' => "السعر يجب أن يكون عدد",
     'nationality_service_type_unique' => 'لا يمكن تكرار الجنسية والخدمة في نفس الوقت.',
+     //IMAGE
+     'image_invalid' => 'الصورة غير صالحة',
+     'image_mimes' => 'png, jpg, jpeg الصورة يجب ان تكون من نوع',
 ];

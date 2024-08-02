@@ -30,14 +30,15 @@ class StoreMaidRequest extends RequestHandle
             'name.required' => __('auth.name_required'),
             'name.min' => __('auth.name_min'),
             'name.max' => __('auth.name_max'),
-            'phone_unique' => __('auth.phone_unique'),
             'age.required' => __('auth.age_required'),
             'age.numeric' => __('auth.age_numeric'),
             'age.min' => __('auth.age_min'),
             'image.mimes' => __('auth.image_mimes'),
             'cv.mimes' => __('auth.cv_mimes'),
-            'nationality_id.required' => __('auth.nationality_required'),
-            'service_type_id.required' => __('auth.service_type_required'),
+            'nationality_id.required' => __('auth.nationality_id_required'),
+            'nationality_id.exists' => __('auth.nationality_id_exists'),
+            'service_type_id.required' => __('auth.service_type_id_required'),
+            'service_type_id.exists' => __('auth.service_type_id_exists'),
         ];
     }
 }

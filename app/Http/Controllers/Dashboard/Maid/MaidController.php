@@ -39,7 +39,7 @@ class MaidController extends Controller
     public function store(StoreMaidRequest $request)
     {
         try {
-            $maid = $this->maidService->store(data: $request->validated());
+            $maid = $this->maidService->store(dataRequest: $request->validated());
             return $this->dataResponse(__('message.success_create'),  new MaidResource($maid), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);
@@ -48,7 +48,7 @@ class MaidController extends Controller
     public function update(UpdateMaidRequest $request, int $id)
     {
         try {
-            $maid = $this->maidService->update(data: $request->validated(), id: $id);
+            $maid = $this->maidService->update(dataRequest: $request->validated(), id: $id);
             return $this->dataResponse(__('message.success_update'),  new MaidResource($maid), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);

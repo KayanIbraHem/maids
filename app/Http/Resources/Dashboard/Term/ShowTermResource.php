@@ -10,18 +10,9 @@ class ShowTermResource extends JsonResource
 
     public function toArray(Request $request): array
     {
-        $titles = [];
-        $descriptions = [];
-        foreach ($this?->translations as $translation) {
-            $titles[] = [
-                'locale' => $translation?->locale ?? "",
-                'title' => $translation?->title ?? "",
-            ];
-            $descriptions[] = [
-                'locale' => $translation?->locale ?? "",
-                'title' => $translation?->description ?? "",
-            ];
-        }
+        $titles = getTranslationAndLocale($this?->translations, 'title');
+        $descriptions = getTranslationAndLocale($this?->translations, 'description');
+
         return [
             'id' => $this->id ?? 0,
             'titles' => $titles ?? [],

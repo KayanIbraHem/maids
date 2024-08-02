@@ -17,7 +17,7 @@ class FetchServiceTypeController extends Controller
     public function __invoke()
     {
         try {
-            $serviceTypes = $this->fetchServiceTypeService->index();
+            $serviceTypes = $this->fetchServiceTypeService->fetchServiceTypes();
             $response = ServiceTypeResource::collection($serviceTypes);
             return $this->dataResponse('fetch all service types', $response, 200);
         } catch (\Exception $e) {

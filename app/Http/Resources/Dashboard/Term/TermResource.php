@@ -14,9 +14,9 @@ class TermResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $translation = $this?->translations?->where('locale', $request->header('Accept-Language'))?->first();
-        $title = $translation ? $translation?->title : "";
-        $description = $translation ? $translation?->description : "";
+
+        $title = getTranslation('title', $request->header('Accept-Language'), $this);
+        $description = getTranslation('description', $request->header('Accept-Language'), $this);
         return [
             'id' => $this->id ?? 0,
             'title' => $title ?? "",

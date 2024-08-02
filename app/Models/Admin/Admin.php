@@ -3,6 +3,7 @@
 namespace App\Models\Admin;
 
 use App\Enums\AdminType;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -15,6 +16,10 @@ class Admin extends Model
     protected $guarded = [];
     protected $table = 'admins';
     protected $append = ['imageLink'];
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = $value;
+    }
     public function isNotSuperAdmin()
     {
         return $this->type != AdminType::SUPER_ADMIN->value;
@@ -28,5 +33,27 @@ class Admin extends Model
         return Attribute::make(
             get: fn () => $this->image ? asset($this->image) : ''
         );
+    }
+
+    protected function hashPassword()
+    {
+        if (Hash::needsRehash($this->attributes['password'])) {
+            $this->attributes['password'] = Hash::make($this->attributes['password']);
+        }
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($admin) {
+            $admin->hashPassword();
+        });
+
+        static::updating(function ($admin) {
+            if ($admin->isDirty('password')) {
+                $admin->hashPassword();
+            }
+        });
     }
 }

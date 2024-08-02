@@ -14,11 +14,12 @@ class NationalityResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $translation = $this?->translations?->where('locale', $request->header('Accept-Language'))?->first();
-        $title = $translation ? $translation?->title : "";
+        $title =  getTranslation('title', $request->header('Accept-Language'), $this);
         return [
             'id' => $this->id ?? 0,
-            'title' => $title ?? ""
+            'title' => $title ?? "",
+            'code ' => $this->code ?? "",
+            'flag' => $this->flagLink
         ];
     }
 }

@@ -19,7 +19,7 @@ class AdminController extends Controller
     public function index()
     {
         try {
-            $admins = $this->adminService->getAdmins();
+            $admins = $this->adminService->index();
             $response = AdminResource::collection($admins)->response()->getData(true);
             return $this->dataResponse('fetch admins.', $response, 200);
         } catch (\Exception $e) {
@@ -29,7 +29,7 @@ class AdminController extends Controller
     public function show(int $admin)
     {
         try {
-            $row = $this->adminService->showAdmin($admin);
+            $row = $this->adminService->show($admin);
             $response = new AdminResource($row);
             return $this->dataResponse('show admin', $response, 200);
         } catch (\Exception $e) {
@@ -39,7 +39,7 @@ class AdminController extends Controller
     public function store(StoreAdminRequest $request)
     {
         try {
-            $admin = $this->adminService->storeAdmin(data: $request->validated());
+            $admin = $this->adminService->store(dataRequest: $request->validated());
             return $this->dataResponse(__('message.success_create'),  new AdminResource($admin), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);
@@ -48,7 +48,7 @@ class AdminController extends Controller
     public function update(UpdateAdminRequest $request, int $admin)
     {
         try {
-            $admin = $this->adminService->updateAdmin(data: $request->validated(), id: $admin);
+            $admin = $this->adminService->update(dataRequest: $request->validated(), id: $admin);
             return $this->dataResponse(__('message.success_update'),  new AdminResource($admin), 200);
         } catch (\Exception $e) {
             return $this->returnException($e->getMessage(), 500);
@@ -57,7 +57,7 @@ class AdminController extends Controller
     public function delete($id)
     {
         try {
-            $this->adminService->deleteAdmin($id);
+            $this->adminService->delete($id);
             $msg = __('message.success_delete');
             return $this->successResponse($msg, 200);
         } catch (\Exception $e) {

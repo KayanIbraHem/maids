@@ -49,5 +49,11 @@ return [
     'image_invalid' => 'الصورة غير صالحة',
     'image_mimes' => 'png, jpg, jpeg الصورة يجب ان تكون من نوع',
     //FILE
-    'cv_mimes' => ' pdf يجب ان تكون من نوع CV الـ',
+    'cv_invalid' => 'السيرة الذاتية غير صالحة',
+    'cv_mimes' => 'pdf السيرة الذاتية يجب ان تكون من نوع',
+    //MAID
+    'nationality_id_required' => "الجنسية مطلوبة",
+    'nationality_id_exists' => "الجنسية غير موجودة",
+    'service_type_id_required' => "نوع الخدمة مطلوب",
+    'service_type_id_exists' => "نوع الخدمة غير موجود",
 ];

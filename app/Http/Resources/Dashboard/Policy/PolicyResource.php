@@ -10,8 +10,7 @@ class PolicyResource extends JsonResource
 
     public function toArray(Request $request): array
     {
-        $translation = $this?->translations?->where('locale', $request->header('Accept-Language'))?->first();
-        $description = $translation ? $translation?->description : "";
+        $description = getTranslation('description', $request->header('Accept-Language'), $this);
         return [
             'id' => $this->id ?? 0,
             'description' => $description ?? ""
