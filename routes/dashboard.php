@@ -9,6 +9,7 @@ use App\Http\Controllers\Dashboard\Maid\MaidController;
 use App\Http\Controllers\Dashboard\Term\TermController;
 use App\Http\Controllers\Dashboard\Admin\AdminController;
 use App\Http\Controllers\Dashboard\Policy\PolicyController;
+use App\Http\Controllers\Dashboard\Settings\SettingsController;
 use App\Http\Controllers\Dashboard\Admin\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Nationality\NationalityController;
 use App\Http\Controllers\Dashboard\ServiceType\ServiceTypeController;
@@ -33,6 +34,13 @@ Route::group([
                 Route::post('update_admin/{admin}', 'update');
                 Route::get('show_admin/{admin}', 'show');
                 Route::delete('delete_admin/{admin}', 'delete');
+            });
+            //SETTINGS
+            Route::controller(SettingsController::class)->group(function () {
+                Route::post('store_settings', 'store');
+                Route::get('settings', 'index');
+                Route::get('show_settings/{settings}', 'show');
+                Route::delete('delete_settings/{settings}', 'delete');
             });
         });
         //SERVICETYPE
