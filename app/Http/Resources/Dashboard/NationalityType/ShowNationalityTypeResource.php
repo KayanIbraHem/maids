@@ -4,8 +4,8 @@ namespace App\Http\Resources\Dashboard\NationalityType;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Dashboard\Nationality\ShowNationalityResource;
-use App\Http\Resources\Dashboard\ServiceType\ShowServiceTypeResource;
+use App\Http\Resources\Dashboard\Nationality\NationalityResource;
+use App\Http\Resources\Dashboard\ServiceType\ServiceTypeResource;
 
 class ShowNationalityTypeResource extends JsonResource
 {
@@ -18,8 +18,8 @@ class ShowNationalityTypeResource extends JsonResource
     {
         return [
             'id' => $this->id ?? 0,
-            'nationality' => new  ShowNationalityResource($this->nationality ?? []) ?? [],
-            'service_type' => new  ShowServiceTypeResource($this->serviceType ?? []) ?? [],
+            'nationality' => new  NationalityResource($this->nationality ?? []) ?? [],
+            'service_type' => new  ServiceTypeResource($this->serviceType ?? []) ?? [],
             'price' => $this->price ?? 0
         ];
     }
