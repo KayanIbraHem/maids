@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Dashboard\Maid\MaidResource;
 use App\Http\Requests\Dashboard\Maid\StoreMaidRequest;
 use App\Http\Requests\Dashboard\Maid\UpdateMaidRequest;
+use Illuminate\Http\Request;
 
 class MaidController extends Controller
 {
@@ -16,7 +17,7 @@ class MaidController extends Controller
     public function __construct(private MaidService $maidService)
     {
     }
-    public function index()
+    public function index(Request $request)
     {
         try {
             $maids = $this->maidService->index();
