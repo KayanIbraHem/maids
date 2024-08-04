@@ -62,7 +62,7 @@ Route::group([
         //NATIONALITY TYPE
         Route::controller(NationalityTypeController::class)->group(function () {
             Route::post('store_nationality_type', 'store');
-            Route::get('nationality_types', 'index');
+            Route::any('nationality_types', 'index');
             Route::post('update_nationality_type/{nationality_type}', 'update');
             Route::get('show_nationality_type/{nationality_type}', 'show');
             Route::delete('delete_nationality_type/{nationality_type}', 'delete');
@@ -86,7 +86,7 @@ Route::group([
         //MAID
         Route::controller(MaidController::class)->group(function () {
             Route::post('store_maid', 'store');
-            Route::get('maids', 'index');
+            Route::any('maids', 'index');
             Route::post('update_maid/{maid}', 'update');
             Route::get('show_maid/{maid}', 'show');
             Route::delete('delete_maid/{maid}', 'delete');

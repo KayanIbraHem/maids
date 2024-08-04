@@ -18,7 +18,7 @@ class NationalityResource extends JsonResource
         return [
             'id' => $this->id ?? 0,
             'title' => $title ?? "",
-            'code ' => $this->code ?? "",
+            'code' => $this->code ?? "",
             'flag' => $this->flagLink
         ];
     }

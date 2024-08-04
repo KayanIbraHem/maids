@@ -17,8 +17,6 @@ class SettingsSeeder extends Seeder
     public function run(): void
     {
         DB::table('settings')->delete();
-
-
         Settings::create([
             'name' => 'Maids',
             'phone' => '0100000000',

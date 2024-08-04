@@ -86,7 +86,7 @@ abstract class CrudOperationHandler
     protected function preparePaginate(): LengthAwarePaginator|Collection
     {
         return $this->hasPaginate
-            ? $this->model::orderByDesc('id')->paginate(5)
+            ? $this->model::filter()->orderByDesc('id')->paginate(5)
             : $this->model::get();
     }
     protected function prepareImage(array $data): ?string
