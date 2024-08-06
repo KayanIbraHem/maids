@@ -5,6 +5,7 @@ namespace App\Models\Nationality;
 use App\Models\ServiceType\ServiceType;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -26,5 +27,9 @@ class Nationality extends Model
         return Attribute::make(
             get: fn () => $this->flag ? asset($this->flag) : ''
         );
+    }
+    public function scopeFilter(Builder $builder): Builder
+    {
+        return $builder;
     }
 }
