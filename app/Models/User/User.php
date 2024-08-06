@@ -7,6 +7,7 @@ use App\Enums\PhoneStatus;
 use App\Models\User\UserDevice;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -53,5 +54,9 @@ class User extends Authenticatable
     public static function verifyPhone(string $phone): bool
     {
         return self::where('phone', $phone)->update(['is_phone_verified' => PhoneStatus::VERIFIED->value]);
+    }
+    public function scopeFilter(Builder $builder): Builder
+    {
+        return $builder;
     }
 }

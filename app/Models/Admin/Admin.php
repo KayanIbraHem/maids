@@ -34,7 +34,10 @@ class Admin extends Model
             get: fn () => $this->image ? asset($this->image) : ''
         );
     }
-
+    public function scopeFilter(Builder $builder): Builder
+    {
+        return $builder;
+    }
     protected function hashPassword()
     {
         if (Hash::needsRehash($this->attributes['password'])) {
