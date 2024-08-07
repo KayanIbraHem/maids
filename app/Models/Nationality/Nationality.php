@@ -28,7 +28,7 @@ class Nationality extends Model
             get: fn () => $this->flag ? asset($this->flag) : ''
         );
     }
-    public function scopeFilter(Builder $builder): Builder
+    public function scopeSearch(Builder $builder): Builder
     {
         return $builder;
     }

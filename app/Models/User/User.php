@@ -55,7 +55,7 @@ class User extends Authenticatable
     {
         return self::where('phone', $phone)->update(['is_phone_verified' => PhoneStatus::VERIFIED->value]);
     }
-    public function scopeFilter(Builder $builder): Builder
+    public function scopeSearch(Builder $builder): Builder
     {
         return $builder;
     }

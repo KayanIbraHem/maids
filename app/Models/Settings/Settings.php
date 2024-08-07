@@ -12,7 +12,7 @@ class Settings extends Model
     use HasFactory;
     protected $table = 'settings';
     protected $guarded = [];
-    public function scopeFilter(Builder $builder): Builder
+    public function scopeSearch(Builder $builder): Builder
     {
         return $builder;
     }

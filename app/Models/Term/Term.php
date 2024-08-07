@@ -14,7 +14,7 @@ class Term extends Model
     protected $guarded = [];
     public $translatedAttributes = ['title'];
     protected $translationForeignKey = 'term_id';
-    public function scopeFilter(Builder $builder): Builder
+    public function scopeSearch(Builder $builder): Builder
     {
         return $builder;
     }

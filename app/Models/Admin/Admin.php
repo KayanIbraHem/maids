@@ -34,7 +34,7 @@ class Admin extends Model
             get: fn () => $this->image ? asset($this->image) : ''
         );
     }
-    public function scopeFilter(Builder $builder): Builder
+    public function scopeSearch(Builder $builder): Builder
     {
         return $builder;
     }
