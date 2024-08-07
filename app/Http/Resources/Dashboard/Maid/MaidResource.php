@@ -23,7 +23,8 @@ class MaidResource extends JsonResource
             'image' => $this->imageLink ?? "",
             'cv' => $this->cvLink ?? "",
             'nationality' => new NationalityResource($this->nationality ?? []) ?? "",
-            'service_type' => new ServiceTypeResource($this->serviceType ?? []) ?? ""
+            'service_type' => new ServiceTypeResource($this->serviceType ?? []) ?? "",
+            'is_active' => $this->is_active ?? 0
         ];
     }
 }

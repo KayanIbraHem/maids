@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('cv')->nullable();
             $table->foreignId('nationality_id')->references('id')->on('nationalities')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('service_type_id')->references('id')->on('service_types')->onDelete('cascade')->onUpdate('cascade');
+            $table->boolean('is_active')->default(1)->comment('1=>active,0=>inactive');
             $table->timestamps();
         });
     }
