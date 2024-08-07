@@ -105,7 +105,7 @@ abstract class CrudOperationHandler
     protected function prepareFile(array $data): ?string
     {
         return  array_key_exists($this->fileKey, $data)
-            ? uploadImage($data, $this->fileKey, strtolower(class_basename($this->model)))
+            ? uploadPdf($data, $this->fileKey, strtolower(class_basename($this->model)))
             : null;
     }
     protected function removeImage($row): void
