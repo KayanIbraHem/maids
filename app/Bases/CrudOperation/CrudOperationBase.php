@@ -9,7 +9,7 @@ class CrudOperationBase extends CrudOperationHandler
 
     public function index()
     {
-        return $this->preparePaginate();
+        return $this->paginate();
     }
     public function show(int $id)
     {

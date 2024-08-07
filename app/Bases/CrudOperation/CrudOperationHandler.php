@@ -41,7 +41,10 @@ abstract class CrudOperationHandler
     abstract protected function update(array|object $data, int $id): Model;
 
     abstract protected function delete(int $id): bool;
-
+    public function paginate(): LengthAwarePaginator|Collection
+    {
+        return $this->preparePaginate();
+    }
     protected function dataHandle(array $dataRequest): array
     {
         $data = $this->prepareColumns($dataRequest);
@@ -83,18 +86,19 @@ abstract class CrudOperationHandler
 
         return $keys;
     }
-    protected function preparePaginate(): LengthAwarePaginator|Collection
+    private function preparePaginate(): LengthAwarePaginator|Collection
     {
-        $model = reflectionClass($this->model);
+        return $this->hasPaginate
+            ? $this->applyScopeSearch($this->model)->orderByDesc('id')->paginate(5)
+            : $this->model::get();
+    }
+    private function applyScopeSearch($model)
+    {
+        $model = reflectionClass($model);
         if (method_exists($model, 'scopeSearch')) {
             $model = $model->search();
         }
-        return $this->hasPaginate
-            ? $model->orderByDesc('id')->paginate(5)
-            : $this->model::get();
-        // return $this->hasPaginate
-        //     ? $this->model::filter()->orderByDesc('id')->paginate(5)
-        //     : $this->model::get();
+        return $model;
     }
     protected function prepareImage(array $data): ?string
     {
@@ -110,19 +114,19 @@ abstract class CrudOperationHandler
     }
     protected function removeImage($row): void
     {
-        $image = $this->checkImage($row);
+        $image = $this->hasImage($row);
         if ($image) deleteImage($image);
     }
     protected function removeFile($row): void
     {
-        $file = $this->checkFile($row);
+        $file = $this->hasFile($row);
         if ($file) deletePdf($file);
     }
-    private function checkImage($row): ?string
+    private function hasImage($row): ?string
     {
         return isset($row[$this->imageKey]) ? $row[$this->imageKey] : null;
     }
-    private function checkFile($row): ?string
+    private function hasFile($row): ?string
     {
         return isset($row[$this->fileKey]) ? $row[$this->fileKey] : null;
     }
