@@ -21,7 +21,7 @@ class ServiceType extends Model
     {
         return $this->belongsToMany(Nationality::class, 'nationality_types', 'service_type_id', 'nationality_id');
     }
-    public function scopeFilter(Builder $builder): Builder
+    public function scopeSearch(Builder $builder): Builder
     {
         return $builder;
     }

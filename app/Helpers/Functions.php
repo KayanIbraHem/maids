@@ -92,6 +92,11 @@ function getTranslationAndLocale(Collection $translations, string $field): array
 
     return $titles;
 }
+function reflectionClass(string $namespace): object
+{
+    $reflection = new ReflectionClass($namespace);
+    return $reflection->newInstance();
+}
 function deletePdf($path)
 {
     File::delete(public_path($path));

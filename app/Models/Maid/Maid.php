@@ -37,7 +37,7 @@ class Maid extends Model
     {
         return $this->belongsTo(ServiceType::class, 'service_type_id');
     }
-    public function scopeFilter(Builder $builder): Builder
+    public function scopeSearch(Builder $builder): Builder
     {
         return $builder->when(Request::post('word'), function ($query, $word) {
             return $query->where('name', 'LIKE', "%{$word}%")

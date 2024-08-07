@@ -17,7 +17,7 @@ class StoreMaidRequest extends RequestHandle
     {
         return [
             'name' => 'required|min:4|max:255',
-            'age' => 'required|numeric|min:1|max:100',
+            'age' => 'nullable|numeric|min:1|max:100',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'cv' => 'nullable|mimes:pdf',
             'nationality_id' => 'required|exists:nationalities,id',

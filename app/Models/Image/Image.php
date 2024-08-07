@@ -12,7 +12,7 @@ class Image extends Model
 
     protected $guarded = [];
     protected $table = 'images';
-    public function scopeFilter(Builder $builder): Builder
+    public function scopeSearch(Builder $builder): Builder
     {
         return $builder;
     }

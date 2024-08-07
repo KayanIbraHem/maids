@@ -85,9 +85,16 @@ abstract class CrudOperationHandler
     }
     protected function preparePaginate(): LengthAwarePaginator|Collection
     {
+        $model = reflectionClass($this->model);
+        if (method_exists($model, 'scopeSearch')) {
+            $model = $model->search();
+        }
         return $this->hasPaginate
-            ? $this->model::filter()->orderByDesc('id')->paginate(5)
+            ? $model->orderByDesc('id')->paginate(5)
             : $this->model::get();
+        // return $this->hasPaginate
+        //     ? $this->model::filter()->orderByDesc('id')->paginate(5)
+        //     : $this->model::get();
     }
     protected function prepareImage(array $data): ?string
     {
