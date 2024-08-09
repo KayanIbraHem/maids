@@ -32,6 +32,22 @@ function uploadImage($request, string $name, string $folder)
     }
     return $path ?? null;
 }
+function uploadImages($request, string $name, string $folder)
+{
+    $paths = [];
+    if (array_key_exists($name, $request)) {
+        $files = is_array($request[$name]) ? $request[$name] : [$request[$name]];
+        foreach ($files as $file) {
+            if ($file) {
+                $path = 'uploads/' . $file->store($folder, [
+                    'disk' => 'uploads'
+                ]);
+                $paths[] = $path;
+            }
+        }
+    }
+    return $paths;
+}
 function deleteImage($path)
 {
     if ($path != "uploads/default.jpg") {
@@ -109,6 +125,14 @@ function isPDF($file): bool
 function isImage($file): bool
 {
     return in_array($file->getMimeType(), ['image/jpeg', 'image/png', 'image/gif']);
+}
+function hasImage($row, string $image): ?string
+{
+    return isset($row[$image]) ? $row[$image] : null;
+}
+function hasFile($row, string $file): ?string
+{
+    return isset($row[$file]) ? $row[$file] : null;
 }
 function hashUserPassword($password)
 {
