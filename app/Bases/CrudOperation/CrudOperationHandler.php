@@ -114,20 +114,12 @@ abstract class CrudOperationHandler
     }
     protected function removeImage($row): void
     {
-        $image = $this->hasImage($row);
+        $image = hasImage($row, $this->imageKey);
         if ($image) deleteImage($image);
     }
     protected function removeFile($row): void
     {
-        $file = $this->hasFile($row);
+        $file = hasFile($row, $this->fileKey);
         if ($file) deletePdf($file);
-    }
-    private function hasImage($row): ?string
-    {
-        return isset($row[$this->imageKey]) ? $row[$this->imageKey] : null;
-    }
-    private function hasFile($row): ?string
-    {
-        return isset($row[$this->fileKey]) ? $row[$this->fileKey] : null;
     }
 }
