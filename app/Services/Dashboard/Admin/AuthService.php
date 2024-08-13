@@ -9,4 +9,6 @@ class AuthService extends AuthBase
     protected string $model = 'App\\Models\\Admin\\Admin';
 
     protected string $guard = 'admin';
+
+    protected string $column = 'email';
 }

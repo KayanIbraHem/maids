@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Admin\Admin;
-
 return [
 
     /*
@@ -49,6 +47,7 @@ return [
         'admin' => [
             'driver' => 'token',
             'provider' => 'admins',
+            // 'storage_key' => 'assssss',
         ],
     ],
 
@@ -76,7 +75,7 @@ return [
         ],
         'admins' => [
             'driver' => 'eloquent',
-            'model' => Admin::class,
+            'model' => App\Models\Admin\Admin::class,
         ],
         // 'users' => [
         //     'driver' => 'database',

@@ -3,11 +3,13 @@
 namespace App\Models\Admin;
 
 use App\Enums\AdminType;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class Admin extends Model
 {
@@ -31,7 +33,7 @@ class Admin extends Model
     public function imageLink(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->image ? asset($this->image) : ''
+            get: fn() => $this->image ? asset($this->image) : ''
         );
     }
     public function scopeSearch(Builder $builder): Builder
