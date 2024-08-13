@@ -9,8 +9,9 @@ use App\Http\Controllers\Dashboard\Maid\MaidController;
 use App\Http\Controllers\Dashboard\Term\TermController;
 use App\Http\Controllers\Dashboard\Admin\AdminController;
 use App\Http\Controllers\Dashboard\Policy\PolicyController;
-use App\Http\Controllers\Dashboard\Settings\SettingsController;
 use App\Http\Controllers\Dashboard\Admin\Auth\LoginController;
+use App\Http\Controllers\Dashboard\Admin\Auth\LogoutController;
+use App\Http\Controllers\Dashboard\Settings\SettingsController;
 use App\Http\Controllers\Dashboard\Nationality\NationalityController;
 use App\Http\Controllers\Dashboard\ServiceType\ServiceTypeController;
 use App\Http\Controllers\Dashboard\Admin\Auth\ChangePasswordController;
@@ -26,6 +27,8 @@ Route::group([
     Route::group(['middleware' => ['auth:admin']], function () {
         //CHANGE PASSWORD
         Route::post('change_password', [ChangePasswordController::class, 'changePassword']);
+        //LOGOUT
+        Route::post('logout', [LogoutController::class, 'logout']);
         Route::group(['middleware' => ['superAdmin']], function () {
             //ADMIN
             Route::controller(AdminController::class)->group(function () {

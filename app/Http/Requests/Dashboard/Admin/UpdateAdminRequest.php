@@ -25,10 +25,10 @@ class UpdateAdminRequest extends RequestHandle
     public function rules(): array
     {
         return [
-            'name' => 'required|min:4|max:255',
-            'email' => 'required|email|max:255|unique:admins,email,' . $this->admin,
-            'password' => 'required|min:8',
-            'type' => ['required', new Enum(AdminType::class)],
+            'name' => 'nullable|min:4|max:255',
+            'email' => 'nullable|email|max:255|unique:admins,email,' . $this->admin,
+            // 'password' => 'nullable|min:8',
+            'type' => ['nullable', new Enum(AdminType::class)],
             'image' => 'nullable|image|mimes:png,jpg,jpeg',
         ];
     }
@@ -41,8 +41,8 @@ class UpdateAdminRequest extends RequestHandle
             'email.unique' => __('auth.email_unique'),
             'email.required' => __('auth.email_required'),
             'email.email' => __('auth.email_invalid'),
-            'password.required' => __('auth.password_required'),
-            'password.min' => __('auth.password_min'),
+            // 'password.required' => __('auth.password_required'),
+            // 'password.min' => __('auth.password_min'),
             'type.required' => __('auth.type_required'),
             'image.mimes' => __('auth.image_mimes'),
             'image.image' => __('auth.image_invalid'),

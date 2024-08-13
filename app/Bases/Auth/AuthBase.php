@@ -2,69 +2,18 @@
 
 namespace App\Bases\Auth;
 
-use App\Trait\ApiResponse;
-use App\Trait\UserAuthentication;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use App\Bases\Auth\AuthHandler;
+use Illuminate\Database\Eloquent\Model;
 
-class AuthBase
+class AuthBase extends AuthHandler
 {
-    use UserAuthentication;
-
-    protected string $model;
-    protected string $guard;
-
-    public function login(object $request)
+    public function login(object $request): Model
     {
-        $credentials = $request->only('email', 'password');
-        $row = $this->getRowByEmail($credentials['email']);
-        $this->validateCredentials($row, $credentials['password']);
-        $row->update(['api_token' => $this->generateApiToken()]);
-        return $row;
+        return $this->loginHandle($request);
     }
-    public function register(array $request)
+    public function register(array $dataRequest): Model
     {
-        return  $this->model::create([
-            'first_name' => $request['first_name'],
-            'last_name' => $request['last_name'],
-            'email' => $request['email'],
-            'password' => hashUserPassword($request['password']),
-            'phone' => $request['phone'],
-            'image' => uploadImage($request, 'image', 'users'),
-        ]);
-    }
-
-    public function logout()
-    {
-        $user = $this->getAuthenticatedUser();
-        $user->update(["api_token" => null]);
-    }
-
-    public function changePassword(object $request)
-    {
-        $user = $this->getAuthenticatedUser();
-        if (Hash::check($request->old_password, $user->password)) {
-            $user->update([
-                'password' => Hash::make($request->new_password),
-            ]);
-            return $user;
-        }
-        throw new \Exception(__('auth.credentials_incorrect'));
-    }
-    protected function getRowByEmail(string $email)
-    {
-        $row = $this->model::whereEmail($email)->first();
-        if (!$row) {
-            throw new \Exception(__('auth.email_not_found'));
-        }
-        return $row;
-    }
-    protected function getRowByPhone(string $phone)
-    {
-        $row = $this->model::wherePhone($phone)->first();
-        if (!$row) {
-            throw new \Exception(__('auth.phone_not_found'));
-        }
-        return $row;
+        $data = $this->registerHandle($dataRequest);
+        return $this->model::create($data);
     }
 }
