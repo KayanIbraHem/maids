@@ -43,7 +43,7 @@ class Admin extends Model
     protected function hashPassword()
     {
         if (Hash::needsRehash($this->attributes['password'])) {
-            $this->attributes['password'] = Hash::make($this->attributes['password']);
+            $this->attributes['password'] = hashUserPassword($this->attributes['password']);
         }
     }
 
