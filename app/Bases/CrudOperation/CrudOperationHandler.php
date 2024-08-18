@@ -2,6 +2,7 @@
 
 namespace App\Bases\CrudOperation;
 
+use App\Trait\FileHandle;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -9,6 +10,8 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 abstract class CrudOperationHandler
 {
+    use FileHandle;
+
     protected string $model;
     protected string $imageKey = "";
     protected string $fileKey = "";
@@ -99,27 +102,5 @@ abstract class CrudOperationHandler
             $model = $model->search();
         }
         return $model;
-    }
-    protected function prepareImage(array $data): ?string
-    {
-        return  array_key_exists($this->imageKey, $data)
-            ? uploadImage($data, $this->imageKey, strtolower(class_basename($this->model)))
-            : null;
-    }
-    protected function prepareFile(array $data): ?string
-    {
-        return  array_key_exists($this->fileKey, $data)
-            ? uploadPdf($data, $this->fileKey, strtolower(class_basename($this->model)))
-            : null;
-    }
-    protected function removeImage($row): void
-    {
-        $image = hasImage($row, $this->imageKey);
-        if ($image) deleteImage($image);
-    }
-    protected function removeFile($row): void
-    {
-        $file = hasFile($row, $this->fileKey);
-        if ($file) deletePdf($file);
     }
 }
