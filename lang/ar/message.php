@@ -32,6 +32,7 @@ return [
     'price_numeric' => "السعر يجب أن يكون عدد",
     'nationality_service_type_unique' => 'لا يمكن تكرار الجنسية والخدمة في نفس الوقت.',
     //IMAGE
+    "image_required" => "الصورة مطلوبة",
     'image_invalid' => 'الصورة غير صالحة',
     'image_mimes' => 'png, jpg, jpeg الصورة يجب ان تكون من نوع',
     //SOCIAL
@@ -62,4 +63,6 @@ return [
     'linkedin_url_min' => 'رابط لينكدان يجب أن يكون 17 حرف على الأقل',
     'linkedin_url_max' => 'رابط لينكدان يجب أن يكون 255 حرف على الأكثر',
     'linkedin_url' => 'رابط لينكدان غير صالح',
+    'link_url' => 'الرابط غير صالح',
+    'link_required' => 'الرابط مطلوب',
 ];

@@ -32,6 +32,7 @@ return [
     'price_numeric' => "price must be numeric",
     'nationality_service_type_unique' => 'The combination of nationality and service type must be unique',
     //IMAGE
+    "image_required" => "image is required",
     'image_invalid' => 'The image is not valid',
     'image_mimes' => 'The image must be a file of type: png, jpg, jpeg',
     //SOCIAL
@@ -62,4 +63,6 @@ return [
     'linkedin_url_min' => 'linkedin url must be at least 17 characters',
     'linkedin_url_max' => 'linkedin url must not be greater than 255 characters',
     'linkedin_url' => 'linkedin url is not valid',
+    'link_url' => 'link must be url',
+    'link_required' => 'link is required',
 ];

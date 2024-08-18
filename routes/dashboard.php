@@ -9,6 +9,7 @@ use App\Http\Controllers\Dashboard\Maid\MaidController;
 use App\Http\Controllers\Dashboard\Term\TermController;
 use App\Http\Controllers\Dashboard\Admin\AdminController;
 use App\Http\Controllers\Dashboard\Policy\PolicyController;
+use App\Http\Controllers\Dashboard\Slider\SliderController;
 use App\Http\Controllers\Dashboard\Admin\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Admin\Auth\LogoutController;
 use App\Http\Controllers\Dashboard\Settings\SettingsController;
@@ -93,6 +94,14 @@ Route::group([
             Route::post('update_maid/{maid}', 'update');
             Route::get('show_maid/{maid}', 'show');
             Route::delete('delete_maid/{maid}', 'delete');
+        });
+        //SLIDER
+        Route::controller(SliderController::class)->group(function () {
+            Route::post('store_slider', 'store');
+            Route::any('sliders', 'index');
+            Route::post('update_slider/{slider}', 'update');
+            Route::get('show_slider/{slider}', 'show');
+            Route::delete('delete_slider/{slider}', 'delete');
         });
         //END POINTS
         //SERVICETYPE
