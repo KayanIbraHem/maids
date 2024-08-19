@@ -23,7 +23,7 @@ class CrudOperationBase extends CrudOperationHandler
     public function update(array|object $dataRequest, int $id): Model
     {
         $row =  $this->getRowById($id);
-        $data = $this->dataHandle($dataRequest);
+        $data = $this->dataHandle($dataRequest, $row);
         $row->update($data);
 
         return $row;

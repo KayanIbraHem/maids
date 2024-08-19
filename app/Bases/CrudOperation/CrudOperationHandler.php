@@ -28,12 +28,10 @@ abstract class CrudOperationHandler
     {
         $this->model = $model;
     }
-
     public function setHasTranslatedColumns(bool $hasTranslatedColumns): void
     {
         $this->hasTranslatedColumns = $hasTranslatedColumns;
     }
-
     public function setHasPaginate(bool $hasPaginate): void
     {
         $this->hasPaginate = $hasPaginate;
@@ -44,17 +42,19 @@ abstract class CrudOperationHandler
     abstract protected function update(array|object $data, int $id): Model;
 
     abstract protected function delete(int $id): bool;
+
     public function paginate(): LengthAwarePaginator|Collection
     {
         return $this->preparePaginate();
     }
-    protected function dataHandle(array $dataRequest): array
+    protected function dataHandle(array $dataRequest, ?Model $model = null): array
     {
         $data = $this->prepareColumns($dataRequest);
-        $image = $this->prepareImage($dataRequest);
-        $file = $this->prepareFile($dataRequest);
+        $image = $this->prepareImage($dataRequest, $model);
+        $file = $this->prepareFile($dataRequest, $model);
         if ($image) $data[$this->imageKey] = $image;
         if ($file) $data[$this->fileKey] = $file;
+
         return $data;
     }
     protected function prepareColumns(array $data): array
@@ -101,6 +101,7 @@ abstract class CrudOperationHandler
         if (method_exists($model, 'scopeSearch')) {
             $model = $model->search();
         }
+
         return $model;
     }
 }
