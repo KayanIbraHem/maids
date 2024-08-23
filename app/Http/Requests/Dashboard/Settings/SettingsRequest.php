@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Dashboard\Settings;
 
-use App\Http\RequestHandler\RequestHandle;
+use App\Bases\FormRequest\FormRequestBase;
 use Illuminate\Foundation\Http\FormRequest;
 
-class SettingsRequest extends RequestHandle
+class SettingsRequest extends FormRequestBase
 {
 
     public function authorize(): bool

@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Dashboard\Slider;
 
-use App\Http\RequestHandler\RequestHandle;
+use App\Bases\FormRequest\FormRequestBase;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSliderRequest extends RequestHandle
+class UpdateSliderRequest extends FormRequestBase
 {
 
     public function authorize(): bool

@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Dashboard\Admin\Auth;
 
-use App\Http\RequestHandler\RequestHandle;
+use App\Bases\FormRequest\FormRequestBase;
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends RequestHandle
+class LoginRequest extends FormRequestBase
 {
     /**
      * Determine if the user is authorized to make this request.

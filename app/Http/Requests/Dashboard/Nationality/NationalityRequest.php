@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Dashboard\Nationality;
 
-use App\Http\RequestHandler\RequestHandle;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Bases\FormRequest\FormRequestBase;
 
-class NationalityRequest extends RequestHandle
+
+class NationalityRequest extends FormRequestBase
 {
     public function authorize(): bool
     {

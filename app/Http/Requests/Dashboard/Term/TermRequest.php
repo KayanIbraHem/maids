@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Dashboard\Term;
 
-use App\Http\RequestHandler\RequestHandle;
+use App\Bases\FormRequest\FormRequestBase;
 use Illuminate\Foundation\Http\FormRequest;
 
-class TermRequest extends RequestHandle
+class TermRequest extends FormRequestBase
 {
 
     public function authorize(): bool

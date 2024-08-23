@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Api\User\Auth;
 
-use App\Http\RequestHandler\RequestHandle;
+use App\Bases\FormRequest\FormRequestBase;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class ApiCheckPhoneRequest extends RequestHandle
+class ApiCheckPhoneRequest extends FormRequestBase
 {
     /**
      * Determine if the user is authorized to make this request.
