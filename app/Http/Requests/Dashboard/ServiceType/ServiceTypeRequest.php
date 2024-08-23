@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Dashboard\ServiceType;
 
-use App\Http\RequestHandler\RequestHandle;
+use App\Bases\FormRequest\FormRequestBase;
 
-class ServiceTypeRequest extends RequestHandle
+class ServiceTypeRequest extends FormRequestBase
 {
 
     public function authorize(): bool

@@ -3,11 +3,9 @@
 namespace App\Http\Requests\Dashboard\NationalityType;
 
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\DB;
-use App\Http\RequestHandler\RequestHandle;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Bases\FormRequest\FormRequestBase;
 
-class StoreNationalityTypeRequest extends RequestHandle
+class StoreNationalityTypeRequest extends FormRequestBase
 {
     public function authorize(): bool
     {

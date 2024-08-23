@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\RequestHandler;
+namespace App\Bases\FormRequest;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
@@ -10,11 +10,11 @@ use Illuminate\Validation\ValidationException;
 
 use function response;
 
-abstract class RequestHandle extends FormRequest
+abstract class FormRequestBase extends FormRequest
 {
     abstract public function authorize();
     abstract public function rules();
-    
+
     protected function failedValidation(Validator $validator)
     {
         $errors = (new ValidationException($validator))->errors();

@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Dashboard\Maid;
 
-use App\Http\RequestHandler\RequestHandle;
+use App\Bases\FormRequest\FormRequestBase;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateMaidRequest extends RequestHandle
+class UpdateMaidRequest extends FormRequestBase
 {
 
     public function authorize(): bool

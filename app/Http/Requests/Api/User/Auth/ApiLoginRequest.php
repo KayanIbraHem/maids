@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Api\User\Auth;
 
-use App\Http\RequestHandler\RequestHandle;
+use App\Bases\FormRequest\FormRequestBase;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ApiLoginRequest extends RequestHandle
+class ApiLoginRequest extends FormRequestBase
 {
 
     public function authorize(): bool

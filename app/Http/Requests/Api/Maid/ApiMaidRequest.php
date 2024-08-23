@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Api\Maid;
 
-use App\Http\RequestHandler\RequestHandle;
+use App\Bases\FormRequest\FormRequestBase;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ApiMaidRequest extends RequestHandle
+class ApiMaidRequest extends FormRequestBase
 {
     /**
      * Determine if the user is authorized to make this request.

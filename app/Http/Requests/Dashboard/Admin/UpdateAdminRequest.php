@@ -4,10 +4,9 @@ namespace App\Http\Requests\Dashboard\Admin;
 
 use App\Enums\AdminType;
 use Illuminate\Validation\Rules\Enum;
-use App\Http\RequestHandler\RequestHandle;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Bases\FormRequest\FormRequestBase;
 
-class UpdateAdminRequest extends RequestHandle
+class UpdateAdminRequest extends FormRequestBase
 {
     /**
      * Determine if the user is authorized to make this request.

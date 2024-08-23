@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Api\User\Auth;
 
-use App\Http\RequestHandler\RequestHandle;
+use App\Bases\FormRequest\FormRequestBase;
 
-class ApiRegisterRequest extends RequestHandle
+class ApiRegisterRequest extends FormRequestBase
 {
     /**
      * Determine if the user is authorized to make this request.

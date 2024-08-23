@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Api\ServiceType;
 
-use App\Http\RequestHandler\RequestHandle;
+use App\Bases\FormRequest\FormRequestBase;
 
-class ApiFetchServiceTypeByIdRequest extends RequestHandle
+class ApiFetchServiceTypeByIdRequest extends FormRequestBase
 {
 
     public function authorize(): bool

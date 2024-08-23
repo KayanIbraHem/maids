@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Dashboard\Slider;
 
-use App\Http\RequestHandler\RequestHandle;
+use App\Bases\FormRequest\FormRequestBase;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSliderRequest extends RequestHandle
+class StoreSliderRequest extends FormRequestBase
 {
     /**
      * Determine if the user is authorized to make this request.

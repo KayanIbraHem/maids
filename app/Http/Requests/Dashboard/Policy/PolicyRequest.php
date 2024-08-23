@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Dashboard\Policy;
 
-use App\Http\RequestHandler\RequestHandle;
+use App\Bases\FormRequest\FormRequestBase;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PolicyRequest extends RequestHandle
+class PolicyRequest extends FormRequestBase
 {
 
     public function authorize(): bool
